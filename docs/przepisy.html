@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -130,12 +149,24 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatura</a>
   </div>
 </li>
     </ul>
     </div>
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Spis treści</h2>
+   
+  <ul>
+  <li><a href="#zmienna-ilościowa" id="toc-zmienna-ilościowa" class="nav-link active" data-scroll-target="#zmienna-ilościowa"><span class="toc-section-number">2.1</span>  Zmienna ilościowa</a></li>
+  <li><a href="#zmienna-ilościowa-w-podgrupach" id="toc-zmienna-ilościowa-w-podgrupach" class="nav-link" data-scroll-target="#zmienna-ilościowa-w-podgrupach"><span class="toc-section-number">2.2</span>  Zmienna ilościowa w podgrupach</a></li>
+  <li><a href="#zmienna-jakościowa" id="toc-zmienna-jakościowa" class="nav-link" data-scroll-target="#zmienna-jakościowa"><span class="toc-section-number">2.3</span>  Zmienna jakościowa</a></li>
+  <li><a href="#zmienna-jakościowa-w-podgrupach" id="toc-zmienna-jakościowa-w-podgrupach" class="nav-link" data-scroll-target="#zmienna-jakościowa-w-podgrupach"><span class="toc-section-number">2.4</span>  Zmienna jakościowa w podgrupach</a></li>
+  <li><a href="#para-zmiennych-ilościowych" id="toc-para-zmiennych-ilościowych" class="nav-link" data-scroll-target="#para-zmiennych-ilościowych"><span class="toc-section-number">2.5</span>  Para zmiennych ilościowych</a></li>
+  <li><a href="#wiele-zmiennych" id="toc-wiele-zmiennych" class="nav-link" data-scroll-target="#wiele-zmiennych"><span class="toc-section-number">2.6</span>  Wiele zmiennych</a></li>
+  <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania"><span class="toc-section-number">2.7</span>  Zadania</a></li>
+  </ul>
+</nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -161,10 +192,124 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><img src="grafiki/okladka_przepisy.png" class="img-fluid"></p>
-<p>W tym rozdziale porozmawiamy o standardach wykorzystywanych przy tworzeniu wykresów statystycznych. Dlaczego standardy są tak ważne? Wyobraźmy sobie, że przygotowujemy serię raportów, w których znajdzie się kilkadziesiąt lub kilkaset wykresów. Jeżeli każdy wykres będzie rządził się innymi prawami, to czytelnik za każdym razem będzie musiał zgadywać, jak dany wykres czytać. Znacznie szybciej pojawi się zmęczenie wywołane koniecznością odcyfrowywania zapisu dla i tak bardzo złożonych zależności. Zwiększy się ryzyko złego odczytania danych i czas potrzebny na zrozumienie całości. Profesjonaliści nie mogą sobie na takie błędy pozwolić.</p>
-<div class="page-columns page-full"><p>Podczas pracy w OECD obserwowałem, jak nad raportem z badania PISA  pracuje liczny, kilkunastoosobowy zespół analityków. Wyniki prac tego zespołu trafiły do tysięcy odbiorców, począwszy od specjalistów od badań edukacyjnych, przez dziennikarzy, po rodziców zainteresowanych zróżnicowaniem umiejętności nastolatków w ponad 65 krajach uczestniczących w badaniach PISA. Na bazie tych wyników podejmowane są często istotne decyzje dotyczące systemu edukacji. Aby te wyniki były czytelne dla szerokiego grona odbiorców, niezbędna jest standaryzacja wykresów.</p><div class="no-row-height column-margin column-container"><span class="">OECD: Organizacja Współpracy Gospodarczej i Rozwoju, organizacja międzynarodowa o skupiająca 38 wysoko rozwiniętych i demokratycznych państw.</span><span class="">PISA: Programme for International Student Assessment, międzynarodowe badanie, którego celem jest uzyskanie porównywalnych danych o umiejętnościach uczniów, którzy ukończyli 15. rok życia w celu poprawy jakości nauczania i organizacji systemów edukacyjnych.</span></div></div>
+<p>W tym rozdziale porozmawiamy o najbardziej sprawdzonych i najczęściej stosowanych sposobach przedstawiania danych statystycznych. Paradoksem analizy danych jest to, że każde dane są inne, ale do większości danych zadajemy bardzo podobne pytania. W swoim zawodowym życiu brałem udział w analizie setek, jeżeli nie tysięcy zbiorów danych. Ale zdecydowana większość z tych analiz składała się z podobnych pytań o to, co w danych najważniejsze: Jakie wartości i jak często przyjmuje określona zmienna – to pytanie o jej rozkład. Jak różnią się podgrupy obserwacji – to pytanie o różnice w rozkładach. Czy pomiędzy dwiema zmiennymi występuje korelacja – to pytanie o zależności. Czy w całych danych widoczna jest zależność pomiędzy wieloma zmiennymi – to pytanie o strukturę. Na te pytania statystycy wypracowali wzorce odpowiedzi, które pozwalają na czytelne podsumowanie dużych ilości informacji. Zobaczmy więc, jakie wykresy są sprawdzonym sposobem prezentacji rozkładu jednej zmiennej, rozkładów zmiennych w podgrupach, korelacji i identyfikacji struktury.</p>
+<p>Poniższe przykłady są oparte na niedawno opublikowanej holenderskiej bazie danych o składzie żywności NEVO, którą opracował instytut Rijksinstituut voor Volksgezondheid en Milieu (RIVM) – holenderski Narodowy Instytut Zdrowia Publicznego i Środowiska <span class="citation" data-cites="rivm">(<a href="references.html#ref-rivm" role="doc-biblioref">Środowiska Holandii (RIVM) 2021</a>)</span>. Ta baza zawiera dane dotyczące składu ponad 2200 produktów spożywczych i ponad 130 składników (białko, węglowodany, tłuszcze i kwasy tłuszczowe, witaminy i minerały).</p>
+<div class="no-row-height column-margin column-container"><div id="ref-rivm" class="csl-entry" role="doc-biblioentry">
+Środowiska Holandii (RIVM), Narodowy Instytut Zdrowia Publicznego i. 2021. <em>Dane NEVO</em>. <a href="https://www.rivm.nl/documenten/nevo-online-versie">https://www.rivm.nl/documenten/nevo-online-versie</a>.
+</div></div><div class="column-screen-inset-right">
+<div id="fig-produktyzywnosciowe" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/przepisy_dane.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;2.1: Dziesięć przykładowych wierszy ze zbioru danych o produktach żywnościowych. Każdy z 2200 produktów jest opisany przez wartość energetyczną 100 g produktu, skład z rozbiciem na 7 różnych składników i informację, do jakiej grupy należy dany produkt</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Do tych danych wrócimy w sekcji <em>Zakoduj to sam</em>, gdzie pokażemy, jak odtworzyć poniżej zaprezentowane wykresy. Drogi Czytelniku, jeżeli sam chciałbyś poeksperymentować z tymi danymi, to przeskocz do ostatniego rozdziału, pobierz odpowiednie dane i eksperymentuj z przedstawianiem informacji o produktach spożywczych.</p>
+<p>Dostępne dane są bardzo ciekawe, szczegółowo opisują 2200 produktów spożywczych. Produkty są podzielone na 27 grup (wędliny, nabiał, warzywa itp.), ale z uwagi na objętość tej książki poniżej przyglądamy się tylko 7 z tych grup oraz 7 głównym składnikom tych produktów: ilości białka, błonnika, cukrów, skrobi, tłuszczów, wody i alkoholu. Będziemy poznawać te dane, jednocześnie poznając sprawdzone typy wykresów statystycznych.</p>
+<p>%Eksplorując dane najczęściej w pierwszym kroku chcemy się przyjrzeć poszczególnym zmiennym, jedna po drugiej. Zmienna po zmiennej chcemy dowiedzieć się jakie wartości są przyjmowane często a jakie rzadko. Później sprawdzamy czy te rozkłady różnią się w podgrupach lub czy jedna zmienna koreluje z innymi.</p>
+<section id="zmienna-ilościowa" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="zmienna-ilościowa"><span class="header-section-number">2.1</span> Zmienna ilościowa</h2>
+<p>Zmienna ilościowa to zmienna opisująca ilość pewnej wielkości, np. wzrost, wiek, ciężar, gęstość itp. Przykładowo w przedstawionych danych mamy dla każdego produktu informację o wartości energetycznej na 100 g tego produktu. W danych są produkty o niskiej wartości energetycznej i takie o bardzo wysokiej. Ale jakich wartości możemy się tam spodziewać? W odpowiedzi na to pytanie pomoże nam histogram.</p>
+<div class="page-columns page-full"><p>Histogram został po raz pierwszy wprowadzony przez Karla Pearsona pod koniec XIX wieku. Zmienną ilościową dzieli się na przedziały o równej długości, a następnie dla każdego przedziału przedstawia się, ile obserwacji z danych do niego należy. Liczba przedziałów często zależy od ilości danych, im więcej danych, tym więcej możemy definiować przedziałów. W przykładzie poniżej mamy 30 przedziałów, każdy o szerokości 30 jednostek.</p><div class="no-row-height column-margin column-container"><span class="">Nazwa ,,histogram’’ pochodzi od greckiego <em>histos</em>, co oznacza maszt statku lub rzeczy ustawione pionowo.</span></div></div>
+<div class="column-screen-inset-right">
+<div id="fig-histogram" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/przepisy_histogram.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;2.2: Histogram i jądrowy estymator gęstości – dwa najczęstsze sposoby przedstawiania rozkładu zmiennych ilościowych</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Histogram jest z natury rzeczy dyskretny, a dla małej liczby danych i dużej liczby przedziałów słupki mogą mieć dużą zmienność, co utrudni odczytanie zależności. W takiej sytuacji można zastosować wygładzenie np. z użyciem tzw. jądrowego estymatora gęstości.</p>
+<div class="page-columns page-full"><p>Na rysunku <a href="#fig-histogram">Figure&nbsp;<span>2.2</span></a> przedstawiono oba podejścia do wizualizacji rozkładu zmiennej ilościowej.  Widać z nich, że w danych mamy sporą liczbę produktów o bardzo niskiej wartości energetycznej, większość produktów ma wartość energetyczną do 500 kcal, ale jest też kilka takich, których wartość energetyczna przekracza 700 kcal.</p><div class="no-row-height column-margin column-container"><span class="">W rozdziale <em>Zakoduj to sam</em> znajdują się instrukcje pokazujące, jak samodzielnie opracować histogram dla dowolnej zmiennej</span></div></div>
+</section>
+<section id="zmienna-ilościowa-w-podgrupach" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="zmienna-ilościowa-w-podgrupach"><span class="header-section-number">2.2</span> Zmienna ilościowa w podgrupach</h2>
+<p>Jeżeli już wszystko wiemy o zachowaniu jednej zmiennej, to najczęściej kolejnym krokiem jest zrozumienie, jak podobne lub różne jest zachowanie się tej zmiennej w podgrupach obserwacji.</p>
+<p>Możemy oczywiście narysować obok siebie rozkład określonej zmiennej osobno dla każdej grupy obserwacji. Taka technika pokazywania danych w postaci siatki wykresów nazywa się <em>small multiples</em>. Pierwszy panel na rysunku <a href="#fig-mieszane">Figure&nbsp;<span>2.3</span></a> przedstawia rozkład wartości energetycznej w podgrupach z użyciem wspomnianej techniki.</p>
+<p>W przypadku gęstości często stosowanym rozwiązaniem jest rysowanie podgrup różnymi kolorami na jednym panelu. Dzięki temu łatwo zauważyć, czy rozkłady dla dwóch grup pokrywają się, czy różnią. Przykład takiego rozwiązania pokazany jest na drugim panelu poniższego wykresu.</p>
+<div class="column-screen-inset-right">
+<div id="fig-mieszane" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/przepisy_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;2.3: Histogram przedstawiony z użyciem techniki <em>small multiples</em>, wykres gęstości z uwzględnieniem podzbiorów obserwacji, wykres pudełkowy i skrzypcowy. Dla trzech z tych wykresów kolory są zbędne, ponieważ nie kodują istotnej informacji, ale pozostawiliśmy je, by łatwiej było zauważyć podobieństwa pomiędzy panelami</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Jeszcze bardziej kompaktowym sposobem prezentacji rozkładu jest tzw. wykres pudełko-wąsy, ang. <em>boxplot</em>. Ponad 60 lat temu John Tukey zaproponował, by zredukować informacje o rozkładzie do pięciu liczb (tzw. piątki Tukeya), czyli minimalnej, maksymalnej, środkowej (mediana) i ćwiartkowych (kwartyle). Te pięć liczb dzieli zbiór obserwacji na cztery równoliczne części. Można je przedstawić za pomocą wykresu pudełkowego, w którym pudełko obejmuje kwartyle i medianę, a wąsy rozpinają się od minimalnej do maksymalnej wartości. Taki wykres pozwala na czytelne przedstawienie rozkładu dla wielu podgrup.</p>
+<p>Wadą wykresów pudełkowych jest trudność w odwzorowaniu rozkładów wielomodalnych, ponieważ gubi się informacje o modalności. Rozwiązaniem są wykresy skrzypcowe, na których gęstość prezentowana jest w sposób przypominający skrzypce, stąd nazwa tego wykresu. Łatwiej zauważyć na nim ewentualną wielomodalność, trudniej zauważyć, gdzie jest mediana i kwartyle.</p>
+<p>Na rysunku <a href="#fig-mieszane">Figure&nbsp;<span>2.3</span></a> widzimy, że większość warzyw ma bardzo niską wartość energetyczną – z wyjątkiem ewentualnie kilku, które osiągają powyżej 200 kcal na 100 g (okazuje się, że są to suszone wodorosty lub pomidory). Zupełnie odwrotnie wygląda sytuacja w przypadku orzechów i nasion, z których większość ma wartość kaloryczną powyżej 400 kcal na 100 g.</p>
+</section>
+<section id="zmienna-jakościowa" class="level2 page-columns page-full" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="zmienna-jakościowa"><span class="header-section-number">2.3</span> Zmienna jakościowa</h2>
+<p>Zmienna jakościowa to cecha, która nie jest ilościowa, jej wartości nie są pomiarami, ale najczęściej odnoszą się do różnych możliwych wartości. Przykładami takich zmiennych są: kolor oczu, miasto zamieszkania, zawód itp. W opisywanych danych zmienną jakościową jest typ składnika odżywczego.</p>
+<p>Aby zobaczyć, jakie wartości przyjmuje ten wskaźnik oraz jak często je przyjmuje, najwygodniej jest użyć wykresu słupkowego – patrz pierwsze panele rysunku <a href="#fig-barplot">Figure&nbsp;<span>2.4</span></a>. Można słupki rysować pionowo, ale często lepszym rozwiązaniem jest rysowanie ich poziomo, by mieć więcej miejsca na nazwy kategorii na osiach. Wykres słupkowy świetnie sprawdza się w precyzyjnym przedstawianiu liczebności.</p>
+<div class="column-screen-inset-right">
+<div id="fig-barplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/przepisy_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;2.4: Wykres słupkowy poziomy i pionowy, wykres kołowy oraz tzw. wykres <em>treemap</em> – wykres obszarowy. To najczęstsze sposoby przedstawiania rozkładu jednej zmiennej jakościowej</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Jeżeli naszym celem jest pokazanie względnych częstości poziomów zmiennej jakościowej, to ciekawą alternatywą mogą być wykresy kołowe lub obszarowe, zaprezentowane na trzecim i czwartym panelu rysunku <a href="#fig-barplot">Figure&nbsp;<span>2.4</span></a>. Precyzja odczytywania względnych wartości jest znacznie mniejsza, ale łatwiej ocenić, ile kategorii potrzeba połączyć, by w sumie uzyskać 25% lub 50% całości. Wykresy kołowe mają też dosyć dużą grupę przeciwników (słusznie) twierdzących, że takie dane można przedstawić czytelniej na innego rodzaju wykresie.</p>
+</section>
+<section id="zmienna-jakościowa-w-podgrupach" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="zmienna-jakościowa-w-podgrupach"><span class="header-section-number">2.4</span> Zmienna jakościowa w podgrupach</h2>
+<p>A jak pokazać zależność pomiędzy zmiennymi jakościowymi w podgrupach? Można do tego wykorzystać wykres słupkowy lub pączkowy (ang. <em>donut plot</em>, ale można tę nazwę tłumaczyć jako wykres pierścieniowy). Przykłady obu wykresów są przedstawione na rysunku <a href="#fig-donut">Figure&nbsp;<span>2.5</span></a>.</p>
+<p>Jeżeli słupki ustawimy na sobie, to łatwiej będzie dostrzec względne proporcje wewnątrz grup. Jeżeli ustawimy je obok siebie, to łatwiej będzie porównywać ich bezwzględne wartości.</p>
+<p>Użycie wykresu mozaikowego pozwala na przedstawienie zarówno rozkładów brzegowych, jak i warunkowych, ale czytanie takich wykresów wymaga pewnej wprawy i sporo osób ma z nimi problemy, więc to raczej rozwiązanie dla zaawansowanych użytkowników. Użycie wykresu pączkowego dziedziczy wszystkie wady wykresów kołowych (trudności w odczytywaniu kątów).</p>
+<div class="column-screen-inset-right">
+<div id="fig-donut" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/przepisy_04.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;2.5: Zależność pomiędzy dwiema zmiennymi jakościowymi przedstawiona za pomocą wykresu słupkowego (słupki na sobie i obok siebie), wykresu mozaikowego (ang. <em>mosaic plot</em>) oraz wykresu pączkowego (ang. <em>donut plot</em>)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Poniższe wykresy pokazują te same dane – udział siedmiu składowych w sześciu losowo wybranych produktach. Który z tych wykresów najczytelniej przedstawia informacje o tych składnikach? Zauważ, drogi Czytelniku, że dla trzech ostatnich produktów (pestki dyni, mascarpone, czekolada) udział tłuszczów jest podobny i wynosi około 45%. Dla dwóch produktów mamy podobną ilość błonnika (pestki dyni, czekolada). Pozostawiam czytelnikowi ocenę, który z tych wykresów pozwala na szybkie zauważenie tych informacji.</p>
+</section>
+<section id="para-zmiennych-ilościowych" class="level2 page-columns page-full" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="para-zmiennych-ilościowych"><span class="header-section-number">2.5</span> Para zmiennych ilościowych</h2>
+<div class="page-columns page-full"><p>Najczęstszym sposobem pokazywania zależności pomiędzy dwiema zmiennymi ilościowymi są wykresy kropkowe.  Na jednej osi prezentowana jest jedna zmienna, na drugiej druga, czasem można dorysować trend, by zależność była bardziej widoczna. Przykład takiego wykresu jest przedstawiony na rysunku <a href="#fig-scatterplot">Figure&nbsp;<span>2.6</span></a>.</p><div class="no-row-height column-margin column-container"><span class="">Często te wykresy nazywane są wykresami punktowymi. W matematyce jednak punkt nie ma wielkości ani kształtu, więc dalej będziemy stosować nazwę – wykres kropkowy.</span></div></div>
+<p>Wykresy kropkowe mają bardzo wiele odmian. Jedną z częstych modyfikacji są transformacje osi. Dla zmiennych skośnych, szczególnie tych skupionych wokół zera, użytecznymi transformacjami są pierwiastkowanie lub logarytmowanie osi. Na lewym panelu poniższego wykresu zastosowano transformację pierwiastkową dla osi, dzięki czemu punkty są bardziej równomiernie rozmieszczone na całym wykresie, a nie tylko skupione w okolicy zera.</p>
+<p>Inną popularną modyfikacją wykresów kropkowych są wykresy Blanda–Altmana (nazwa często używana w biochemii i medycynie) lub wykresy różnic Tukeya (nazwa popularna w innych zastosowaniach). Na jednej osi rysowana jest średnia z dwóch zmiennych, na drugiej osi prezentowana jest różnica pomiędzy zmiennymi. Takie zestawienie zmiennych pozwala ocenić zgodność obu zmiennych. Przykład takiego wykresu jest przedstawiony na prawym panelu rysunku <a href="#fig-scatterplot">Figure&nbsp;<span>2.6</span></a>. Zbiorczo widać, że jednak tłuszcze mają większy udział w tych produktach niż białka, wyjątkiem są produkty rybne.</p>
+<div class="column-screen-inset-right">
+<div id="fig-scatterplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/przepisy_05.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;2.6: Wykres kropkowy przedstawiający zależność pomiędzy zawartością białka i tłuszczu w 100 g produktu. Na lewym panelu osie zostały przekształcone transformacją pierwiastkową, tak by rozrzedzić punkty skupione blisko zera. Kolory pomagają dostrzec skupiska produktów z tej samej grupy</figcaption><p></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="wiele-zmiennych" class="level2 page-columns page-full" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="wiele-zmiennych"><span class="header-section-number">2.6</span> Wiele zmiennych</h2>
+<p>Gdy już poznamy zależności dla pary zmiennych, kolejnym krokiem jest eksploracja większej grupy zmiennych.</p>
+<p>Istnieje wiele technik statystycznych pozwalających na lepsze zrozumienie wspólnych zależności pomiędzy zmiennymi. W przypadku danych ilościowych często wykorzystywaną techniką jest analiza składowych głównych – PCA. Pozwala ona na przedstawienie zarówno obserwacji, jak i zmiennych w dwuwymiarowej przestrzeni, tak by można było odczytać, które zmienne są ze sobą skorelowane, a jednocześnie, które obserwacje mają wysokie wartości w poszczególnych zmiennych. Analizując wynik analizy PCA przedstawiony na rysunku <a href="#fig-wiele">Figure&nbsp;<span>2.7</span></a>, można dojść do wniosku, że cecha skrobia i cukry są ze sobą skorelowane dodatnio, a woda jest ujemnie skorelowana z innymi zmiennymi, szczególnie z błonnikiem. Pionowa oś rozróżnia produkty bogate w białko i tłuszcze od produktów bogatych w cukry i alkohol.</p>
+<div class="column-screen-inset-right">
+<div id="fig-wiele" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/przepisy_06.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;2.7: Pierwszy panel przedstawia analizę PCA dla danych o składzie produktów, drugi panel przedstawia macierz korelacji pomiędzy udziałem poszczególnych czynników. Kolejne dwa panele prezentują wartości wielu zmiennych dla wybranych obserwacji – najpierw za pomocą wykresu liniowego, a następnie z użyciem mapy ciepła (ang. <em>heatmap</em>)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Częstym podsumowaniem dla zbioru zmiennych są wykresy korelacji, np. prezentowane za pomocą map ciepła, jak na powyższym rysunku. Pozwalają one zauważyć, które zmienne są najsilniej skorelowane i ile mamy takich skorelowanych skupisk.</p>
+<p>Jeżeli chcemy przedstawić indywidualne obserwacje, uwzględniając dla nich wiele zmiennych, to przydatne mogą być wykresy typu mapa ciepła lub wykresy liniowe. Oba te typy wykresów są przedstawione na ostatnich dwóch panelach rysunku <a href="#fig-wiele">Figure&nbsp;<span>2.7</span></a>.</p>
+</section>
+<section id="zadania" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="zadania"><span class="header-section-number">2.7</span> Zadania</h2>
+<p>Przyjrzyjmy się kilku portalom informacyjnym, gdzie ważna jest czytelna i konsekwentna komunikacja danych.</p>
+<ol type="1">
+<li>Miejscem, gdzie błyskawicznie konsumowane są olbrzymie ilości danych są giełdy. Przyjrzyj się notowaniom cen akcji, walut, indeksów, np. na stronie <a href="https://gpw.pl/">https://gpw.pl/</a> lub <a href="https://bankier.pl/">https://bankier.pl/</a>. Jakiego typu dane są tu przedstawiane? Jakie mechanizmy zastosowano, by ułatwić szybką analizę setek indeksów jednocześnie? Jak poradzono sobie, by pokazać jednocześnie wolumen sprzedaży i cenę?</li>
+<li>PISA to cykliczne badanie umiejętności szkolnych wśród 15-latków z dziesiątek krajów na świecie. Co trzy lata analizowane są umiejętności setek tysięcy uczniów, a następnie są one zestawiane z niezliczonymi wskaźnikami. Raporty PISA są najeżone danymi oraz wykresami. Zapoznaj się z jedną z publikacji dotyczących tych danych, dostępnych na stronie <a href="https://www.oecd.org/pisa/">https://www.oecd.org/pisa/</a>. Jakie dwa rodzaje wykresów są w niej najczęściej stosowane. Jakie mechanizmy wykorzystano, aby ułatwić czytanie danych na tych wykresach?</li>
+<li>Prawdopodobnie największą, a z pewnością najbardziej zróżnicowaną bazą danych w Europie jest baza Eurostatu – urzędu statystycznego gromadzącego najróżniejsze dane o krajach Wspólnoty i nie tylko. Zapoznaj się z wybraną publikacją ze strony <a href="https://ec.europa.eu/eurostat">https://ec.europa.eu/eurostat</a> i zastanów się, jaki rodzaj wykresów jest tam najczęściej wykorzystywany. Dlaczego? Jakie mechanizmy zastosowano, aby ułatwić czytanie danych na tych wykresach?</li>
+</ol>
+<p>Jeżeli chciałbyś dowiedzieć się więcej o klasycznych wykresach do prezentacji różnego rodzaju danych i relacji, to może zainteresować Cię esej <em>Od kuchni</em> z książki <em>Odkrywać! Ujawniać! Objaśniać!</em>.</p>
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

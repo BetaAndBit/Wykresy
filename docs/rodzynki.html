@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -61,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -130,12 +150,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatura</a>
   </div>
 </li>
     </ul>
     </div>
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Spis treści</h2>
+   
+  <ul>
+  <li><a href="#wykres-narzędzie-walki-z-pandemią" id="toc-wykres-narzędzie-walki-z-pandemią" class="nav-link active" data-scroll-target="#wykres-narzędzie-walki-z-pandemią"><span class="toc-section-number">3.1</span>  Wykres, narzędzie walki z pandemią</a></li>
+  <li><a href="#wykres-uniwersalne-narzędzie-perswazji" id="toc-wykres-uniwersalne-narzędzie-perswazji" class="nav-link" data-scroll-target="#wykres-uniwersalne-narzędzie-perswazji"><span class="toc-section-number">3.2</span>  Wykres, uniwersalne narzędzie perswazji</a></li>
+  <li><a href="#wykres-podsumowanie-kampanii-militarnych" id="toc-wykres-podsumowanie-kampanii-militarnych" class="nav-link" data-scroll-target="#wykres-podsumowanie-kampanii-militarnych"><span class="toc-section-number">3.3</span>  Wykres, podsumowanie kampanii militarnych</a></li>
+  <li><a href="#wykres-pokaże-to-lepiej" id="toc-wykres-pokaże-to-lepiej" class="nav-link" data-scroll-target="#wykres-pokaże-to-lepiej"><span class="toc-section-number">3.4</span>  Wykres pokaże to lepiej</a></li>
+  <li><a href="#wykresy-mające-edukować-społeczeństwo" id="toc-wykresy-mające-edukować-społeczeństwo" class="nav-link" data-scroll-target="#wykresy-mające-edukować-społeczeństwo"><span class="toc-section-number">3.5</span>  Wykresy mające edukować społeczeństwo</a></li>
+  <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania"><span class="toc-section-number">3.6</span>  Zadania</a></li>
+  </ul>
+</nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -161,10 +192,117 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><img src="grafiki/okladka_rodzynki.png" class="img-fluid"></p>
-<p>W tym rozdziale porozmawiamy o standardach wykorzystywanych przy tworzeniu wykresów statystycznych. Dlaczego standardy są tak ważne? Wyobraźmy sobie, że przygotowujemy serię raportów, w których znajdzie się kilkadziesiąt lub kilkaset wykresów. Jeżeli każdy wykres będzie rządził się innymi prawami, to czytelnik za każdym razem będzie musiał zgadywać, jak dany wykres czytać. Znacznie szybciej pojawi się zmęczenie wywołane koniecznością odcyfrowywania zapisu dla i tak bardzo złożonych zależności. Zwiększy się ryzyko złego odczytania danych i czas potrzebny na zrozumienie całości. Profesjonaliści nie mogą sobie na takie błędy pozwolić.</p>
-<div class="page-columns page-full"><p>Podczas pracy w OECD obserwowałem, jak nad raportem z badania PISA  pracuje liczny, kilkunastoosobowy zespół analityków. Wyniki prac tego zespołu trafiły do tysięcy odbiorców, począwszy od specjalistów od badań edukacyjnych, przez dziennikarzy, po rodziców zainteresowanych zróżnicowaniem umiejętności nastolatków w ponad 65 krajach uczestniczących w badaniach PISA. Na bazie tych wyników podejmowane są często istotne decyzje dotyczące systemu edukacji. Aby te wyniki były czytelne dla szerokiego grona odbiorców, niezbędna jest standaryzacja wykresów.</p><div class="no-row-height column-margin column-container"><span class="">OECD: Organizacja Współpracy Gospodarczej i Rozwoju, organizacja międzynarodowa o skupiająca 38 wysoko rozwiniętych i demokratycznych państw.</span><span class="">PISA: Programme for International Student Assessment, międzynarodowe badanie, którego celem jest uzyskanie porównywalnych danych o umiejętnościach uczniów, którzy ukończyli 15. rok życia w celu poprawy jakości nauczania i organizacji systemów edukacyjnych.</span></div></div>
+<p>W tym rozdziale przyjrzymy się pięciu przykładom wyjątkowych wizualizacji danych, które przeszły do historii, nierzadko zmieniając losy wielu osób. Większość tej książki poświęcona jest sprawdzonym przepisom sporządzania poprawnych i czytelnych wykresów, ale pamiętajmy, że wykresy to nie dzieła natury, ale są wymyślane i usprawniane przez pokolenia naukowców, chcących komunikować złożone zależności. Przedstawione tutaj wykresy to przykłady tych pionierskich innowacji, a za każdą z nich stoi interesujący badacz lub badaczka, którzy ją wymyślili. Oto pięć wykresów, które każdy szanujący się smakosz danych musi znać.</p>
+<section id="wykres-narzędzie-walki-z-pandemią" class="level2 page-columns page-full" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="wykres-narzędzie-walki-z-pandemią"><span class="header-section-number">3.1</span> Wykres, narzędzie walki z pandemią</h2>
+<p>Wykresy mogą się przysłużyć zupełnie nowym odkryciom naukowym i społecznym. Ciekawym przykładem grafiki statystycznej towarzyszącej naukowej rewolucji jest wykres opracowany przez lekarza dr. Johna Snowa (1813–1858) dotyczący epidemii cholery w londyńskim Soho w 1854 roku. O istotnej wadze tego dzieła świadczy między innymi to, że dzięki wynikom pracy nad tą epidemią John Snow jest uznawany za prekursora epidemiologii.</p>
+<p>Nakreślmy kontekst. Jest 1854 rok. Liczba mieszkańców londyńskiego Soho szybko rośnie. Nie ma kanalizacji. Nieczystości przechowywane są w szambach, mieszczących się w piwnicach. Niestety szamba nie są wystarczająco duże jak na potrzeby szybko rosnącej liczby mieszkańców i zbyt szybko się przepełniają. Władze Londynu nakazują je częściej opróżniać przez wylewanie zawartości do Tamizy. W Londynie wybucha epidemia cholery, która w ciągu pierwszego miesiąca zabija przeszło 120 osób, a łącznie ofiar jest ponad 600. Zaraza spowodowała taką panikę, że jedna trzecia mieszkańców Soho uciekła z miasta w obawie o swoje życie.</p>
+<p>W tamtych czasach wierzono, że cholera jest rozprzestrzeniana przez ,,morowe powietrze’’. Przypomnijmy, że bakterie wywołujące choroby odkrył Louis Pasteur dopiero 7 lat później, zatem zarówno podczas tej epidemii, jak i wcześniejszych ludzie naprawdę nie mieli pojęcia, z czym mają do czynienia. Nasz bohater, John Snow, szukając przyczyny epidemii, rozmawiał z mieszkańcami opanowanej chorobą dzielnicy. Odkrył, że wszystkie przypadki zachorowań i śmierci są w jakiś sposób związane z pompą wody na Broad Street. Zgony dotyczyły głównie osób mieszkających w tej okolicy albo dzieci uczęszczających do szkoły w pobliżu, albo osób mieszkających dalej, ale pobierających wodę z tego ujęcia. Zauważył to dzięki naniesieniu na mapę dzielnicy kropek symbolizujących zachorowanie danej osoby w miejscu jej zamieszkania/pracy/szkoły.</p>
+<p>John Snow nie potrafił wytłumaczyć, co dokładnie tę chorobę wywołuje, ale zebrane dowody wystarczyły, by przekonać władze Londynu do zamknięcia wskazanego ujęcia wody. Jak przyznawał sam Snow, epidemia była już wtedy w fazie końcowej i nie sposób przypisać zakończenia epidemii wyłącznie tej decyzji. Z pewnością jednak ograniczyło to liczbę przypadków śmiertelnych i przyczyniło się do lepszego zrozumienia przyczyn epidemii. Później udało się ustalić, że roznosząca zarazki pompa wody była położona bardzo blisko jednego z szamb.</p>
+<div class="column-screen-inset-right">
+<div id="fig-cholera" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/rodzynki_01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;3.1: Po lewej: Wykres, który przeszedł do historii jako dowód na źródło epidemii cholery w londyńskim Soho. Mapa została opracowana przez Johna Snowa, ale narysował ją i wydrukował litograf John Churchill. Po prawej: Rekonstrukcja wykresu Snowa. Czerwone kropki przedstawiają miejsca zamieszkania ofiar cholery, niebieskie trójkąty przedstawiają położenie ujęć wody</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Mapa przedstawiona na rysunku <a href="#fig-cholera">Figure&nbsp;<span>3.1</span></a> stanowi piękny przykład tego, jak wizualizacja danych pozwala na dobitne przedstawienie związku pomiędzy różnymi czynnikami, w tym przypadku zgonami a ujęciem wody. W przypadku Snowa można przypuszczać, że to właśnie proces tworzenia pierwszej wersji mapy pomógł mu w odkryciu źródła epidemii <span class="citation" data-cites="SnowOnTM">(<a href="references.html#ref-SnowOnTM" role="doc-biblioref">Snow 1849</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-SnowOnTM" class="csl-entry" role="doc-biblioentry">
+Snow, John. 1849. <span>“On the Mode of Communication of Cholera.”</span> <em>Edinburgh Medical Journal</em> 1: 668–70.
+</div></div></section>
+<section id="wykres-uniwersalne-narzędzie-perswazji" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="wykres-uniwersalne-narzędzie-perswazji"><span class="header-section-number">3.2</span> Wykres, uniwersalne narzędzie perswazji</h2>
+<p>Jak widzieliśmy na przykładzie epidemii cholery, grafika statystyczna jest bardzo przydatna przy dokonywaniu odkryć naukowych i badaniu zjawisk społecznych. Jak się za chwilę okaże, może być również użyta jako narzędzie do wywierania wpływu na opinię odbiorcy i w konsekwencji na jego dalsze decyzje. Najbardziej znanym przykładem grafiki statystycznej użytej w celu wywołania konkretnej reakcji, a wręcz wykorzystanej jako środek silnej perswazji, były wykresy angielskiej pielęgniarki i jednocześnie statystyczki Florence Nightingale (1820–1910).</p>
+<p>W tej historii niemałą rolę odgrywa osobowość panny Nightingale, zacznijmy więc od jej krótkiego przedstawienia. Kobieta wywodząca się z tzw. dobrego domu (była arystokratką) przeraziła całą rodzinę, gdy oświadczyła, że chce zostać pielęgniarką. W tamtych czasach absolutnie nie było to zajęcie dla kobiet z wysokich czy choćby średnich warstw społecznych.<br>
+Nightingale nie była jednak osobą, która łatwo rezygnuje ze swoich planów. Nie dosyć, że została przełożoną pielęgniarek, to jeszcze w wieku 33 lat rozpoczęła organizowanie opieki szpitalnej podczas wojny krymskiej.</p>
+<p>Pracowała bez wystarczających środków medycznych, zaopatrzeniowych czy żywieniowych. Robiła, co mogła, by pomóc rannym żołnierzom. Znana była z tego, że wykonywała systematycznie obchody po korytarzach szpitala, niosąc lampę, przez co przylgnęło do niej określenie <em>the lady with the lamp</em>. Czy robiła to, by żołnierze nie czuli się samotni i opuszczeni w nocy, sam na sam z bólem i cierpieniem? Jej postawa przerodziła się w symbol. Sto lat później nakręcono film pod tytułem <em>The Lady with the Lamp</em>, a nawiązania do niej pojawiają się w poezji Henry’ego Longfellowa i innych poetów. Dała się poznać jako bardzo zdeterminowana osoba. Jednocześnie należy podziwiać jej podejście do pracy, nie zajmowała się bowiem tylko doraźną pomocą, ale interesował ją całokształt problemu i zależało jej na stworzeniu dobrych systemowych rozwiązań, tak aby z jej doświadczeń mogli korzystać również inni.</p>
+<p>W okresie służby na Krymie Nightingale odkryła, że większość żołnierzy ginie z powodu złej opieki szpitalnej: zakażeń, niedożywienia i innych przyczyn, którym można zaradzić, organizując lepszą opiekę. Oszacowała, że z 18 tysięcy zgonów około 16 tysięcy było spowodowanych zakażeniami, a więc niskim poziomem higieny i osłabieniem chorego spowodowanym brakiem żywności i niedostatecznym wyposażeniem szpitali polowych. To odkrycie niosło jednocześnie jasną przesłankę, co zrobić, by znacząco ograniczyć liczbę ofiar – należało lepiej zorganizować opiekę szpitalną. Dziś to oczywiste, ale w tamtych czasach było rewolucyjnym odkryciem.</p>
+<p>Aby przedstawić swoje racje, Nightingale opracowała wykres polarny (nazywany też różą Nightingale, ang. <em>Nightingale rose diagram</em>), przedstawiony na rysunku <a href="#fig-coxcomb">Figure&nbsp;<span>3.2</span></a>, przez samą autorkę określany wykresem grzebieniowym (ang. <em>coxcomb</em>).</p>
+<div class="column-screen-inset-right">
+<div id="fig-coxcomb" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/rodzynki_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;3.2: Wykres przedstawia liczbę zgonów spowodowanych przez uleczalne choroby (niebieski), rany wojenne (czerwony) i inne przyczyny, np. odmrożenia (czarny). Liczba zgonów jest proporcjonalna do promienia segmentu. Źródło: <em>Diagram of the causes of mortality in the army in the East</em>, opublikowany w <em>Notes on Matters Affecting the Health, Efficiency, and Hospital Administration of the British Army</em>, wysłany do królowej brytyjskiej w 1858 roku. Domena publiczna.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Z opracowanego przez Nightingale wykresu łatwo odczytać jak wiele śmierci spowodowanych było uleczalnymi chorobami, czyli zakażeniami szpitalnymi, efektami niedożywienia lub słabej opieki szpitalnej. Przypadkom tym odpowiada kolor niebieski. Rozstawienie słupków powoduje, że kolor ten dominuje wykres. Dane są proporcjonalne do promieni fragmentów koła, ale bardziej widoczna jest powierzchnia niebieskiego obszaru. A powierzchnia jest proporcjonalna do kwadratu promienia.</p>
+<p>Wykres ten nie tylko pokazywał, co jest złego w systemie opieki szpitalnej na polu bitwy, ale połączony był z jasną sugestią autorki, że poprawa opieki szpitalnej doprowadzi do znacznego ograniczenia liczby ofiar wojennych. Dzięki prostej formie, dobitnie przestawiającej fakty, był dla wszystkich wystarczająco zrozumiały. Wykres spełnił swoją rolę bardzo dobrze, był edukacyjny i informacyjny (przedstawił nowe fakty), a dodatkowo był opiniotwórczy (dzięki wadze przedstawianych informacji), dlatego doprowadził do zmian po myśli Nightingale. Warunki w opiece szpitalnej znacznie się poprawiły. W tym przypadku bez żadnego nadużycia można stwierdzić, że to grafika statystyczna, czytelne i celowe przedstawienie danych, doprowadziła do uratowania tysięcy ludzkich istnień i do znaczących zmian w systemie opieki nad chorymi.</p>
+<div class="page-columns page-full"><p>W roku 1907 Florence Nightingale, jako pierwsza kobieta w historii, otrzymała Brytyjski Order Zasługi. </p><div class="no-row-height column-margin column-container"><span class="">Od roku 1920 najwyższym międzynarodowym pielęgniarskim odznaczeniem jest medal Florence Nightingale. Do roku 2014 sto dwie polskie pielęgniarki otrzymały to odznaczenie.</span></div></div>
+</section>
+<section id="wykres-podsumowanie-kampanii-militarnych" class="level2 page-columns page-full" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="wykres-podsumowanie-kampanii-militarnych"><span class="header-section-number">3.3</span> Wykres, podsumowanie kampanii militarnych</h2>
+<p>%Wykresy Williama Playfaira są pięknymi przykładami wizualizacji danych o ekonomii państwa. Wykres Johna Snowa pokazuje, jak dzięki wizualizacji danych można odnaleźć wspólny mianownik dziesiątek zgonów. Wykresy Florence Nightingale prezentują moc perswazji dobrze zaprojektowanej grafiki. Przyjrzyjmy się teraz wykresowi, o którym Edward Tufte (którego jeszcze spotkamy w jednym z kolejnych przystanków wędrówki przez dzieje wizualizacji) napisał: ,,być może najlepsza grafika statystyczna, jaka kiedykolwiek powstała’’.</p>
+<p>Zacznijmy od przedstawienia autora. Charles Minard (1781–1870) był francuskim inżynierem lądowym, a także pionierem, jeżeli chodzi o zastosowania grafiki w inżynierii i statystyce. W 1869 roku opublikował mapę przedstawiającą historię napoleońskiej inwazji na Rosję w latach 1812–13. Piękno tej grafiki bierze się z prostoty i elegancji zaprezentowania złożonych i wielowymiarowych danych.</p>
+<p>Dziesiątki bitw i potyczek, ruchy olbrzymich mas wojsk, wyniki starć z wrogimi wojskami – to wszystko można odczytać z jednej mapy. Liczebność armii na poszczególnych etapach inwazji przedstawiono za pomocą grubości odcinków łączących poszczególne istotne punkty kampanii. Na linii Kowna armia napoleońska liczyła 420 tysięcy żołnierzy. Po drodze do Moskwy od głównej armii oddzieliły się dwie mniejsze dywizje, a dalej na wschód doszło do szeregu bitew, w wyniku których wielkość armii topniała, co pokazuje zwężająca się szerokość brązowej wstęgi. Do Moskwy dotarło jedynie około 100 tysięcy żołnierzy. Byli to jednak żołnierze bez wystarczającego zaopatrzenia, ponieważ wycofująca się armia rosyjska nie pozostawiła żadnych zapasów żywności.</p>
+<div class="column-screen-inset-right">
+<div id="fig-Minard" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/rodzynki_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;3.3: Mapa przedstawia losy armii napoleońskiej na różnych etapach inwazji na Rosję. Źródło: Charles Minard <em>Figurative Map of the successive losses in men of the French Army in the Russian campaign 1812–1813</em>, rok 1869.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Odwrót rozpoczął się 18 października z powodu braku żywności i zbliżającej się zimy. Na wykresie odwrót zaznaczony jest czarną wstęgą, której jednocześnie towarzyszy prezentacja spadającej temperatury (w dolnej części grafiki). Żołnierzom nie udało się uciec przed zimą i zimnem, podczas odwrotu temperatura spadła do <span class="math inline">\(-30\)</span> stopni. Temperatura, brak żywności, potyczki z wrogiem spowodowały, że w drodze powrotnej do Kowna armia stopniała do 30 tysięcy żołnierzy. Był to niewielki ułamek początkowej armii.</p>
+<p>Zaznaczając położenie wojsk, uwzględniono nie tylko położenie geograficzne, ale również daty osiągnięcia przez armię danej pozycji. Umożliwia to śledzenie w czasie przemieszczania się cesarskiego wojska, jak i przebiegu bitew (zwężająca się wstęga oznacza coraz to mniejszą liczbę żołnierzy po kolejnych krwawych potyczkach). Zaznaczona spadająca temperatura podczas odwrotu (a inwazja miała miejsce podczas ponoć jednej z najsroższych zim w historii) ułatwia zrozumienie, z jakimi innymi przeszkodami musieli się zmierzyć żołnierze, w dużej części pochodzący z południa Europy.</p>
+<p>Mapa Minarda podważa twierdzenie, że każda dobra wizualizacja musi być prosta i natychmiast czytelna. Jest przykładem, że bogata w różnorodne informacje grafika wcale nie musi być tablicą rozdzielczą (ang. <em>dashboard</em>) złożoną z wielu prostych wykresów.</p>
+<p>Dzieło Minarda wcale nie jest prostą grafiką. Zawiera wiele szczegółów, które można stopniowo odkrywać, część z nich dostrzega się dopiero po pewnym czasie. Wszystkie te detale składają się w jeden olbrzymi obraz kampanii napoleońskiej. Czy tym właśnie jest idealna grafika statystyczna? Czy chodzi o zaprezentowanie całej złożoności opisywanego zjawiska, wszystkiego, co jest w nim ważne, w formie jednego wielowarstwowego obrazu? Z pewnością jest to świetny przykład czytelnej, estetycznej i bogatej w informacje wizualizacji.</p>
+</section>
+<section id="wykres-pokaże-to-lepiej" class="level2 page-columns page-full" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="wykres-pokaże-to-lepiej"><span class="header-section-number">3.4</span> Wykres pokaże to lepiej</h2>
+<div class="page-columns page-full"><p>Jednym z najbardziej znanych wykresów statystycznych jest przedstawiony poniżej kwartet Anscombe’a. Frank Anscombe  zapisał się w historii grafiki statystycznej, kiedy w 1973 roku skonstruował i przedstawił cztery zbiory danych o bardzo ciekawych właściwościach. Każdy zbiór danych składa się z dwóch zmiennych: x i y. W każdym zbiorze danych średnia wartość zmiennej x wynosi 9. Wariancja tej zmiennej w każdym zestawie danych wynosi 11. Średnie zmiennej pokazanej na osi pionowej w każdym z zestawów danych wynoszą 7,5, a ich wariancje są równe 4,12. Dla każdego z tych czterech zbiorów danych korelacje zmiennych na obu osiach wynoszą 0,816, a z punktu widzenia liniowych zależności wszystkie te dane najlepiej opisuje ten sam model regresji liniowej <span class="math inline">\(y=3+x/2\)</span>.</p><div class="no-row-height column-margin column-container"><span class="">Frank Anscombe to szwagier Johna Tukeya, jednego z najbardziej znanych zbuntowanych statystyków tamtego okresu.</span></div></div>
+<p>Można odnieść wrażenie, że to są bardzo podobne zbiory danych, skoro mają tak bardzo podobny opis. Ale dopiero narysowanie danych pokazuje nam, że w każdym zbiorze danych kryje się zupełnie inna historia.</p>
+<div id="fig-anscombe" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/rodzynki_04.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;3.4: Kwartet Anscombe’a odtworzony za pomocą pakietu <code>ggplot2</code></figcaption><p></p>
+</figure>
+</div>
+<p>Od ponad 50 lat badacze są zachłyśnięci zależnościami, które łatwo przedstawić prostym wzorem, np. z użyciem regresji liniowej. Anscombe przygotował cztery zestawy danych tak dobrane, by podstawowe statystyki liczbowe były dla nich identyczne <span class="citation" data-cites="Anscombe1973">(<a href="references.html#ref-Anscombe1973" role="doc-biblioref">Anscombe 1973</a>)</span>. W każdym z tych czterech zbiorów danych mamy te same średnie, wariancje, współczynniki korelacji, regresji liniowej i wartości testów istotności dla współczynników w modelach regresji liniowej. Z punktu widzenia regresji liniowej te cztery zbiory danych są nierozróżnialne i w każdym z tych czterech przypadków mamy do czynienia z taką samą zależnością pomiędzy parą zmiennych.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Anscombe1973" class="csl-entry" role="doc-biblioentry">
+Anscombe, Frank. 1973. <span>“Graphs in Statistical Analysis.”</span> <em>The American Statistician</em> 27: 17–21.
+</div></div><p>Jednak proste przedstawienie graficzne tych czterech zestawów danych ilustruje oczywiste różnice pomiędzy nimi. Jest to wspaniały przykład wartości wizualizacji danych, która czasem potrafi opowiedzieć o danych więcej niż nawet zaawansowany model statystyczny.</p>
+</section>
+<section id="wykresy-mające-edukować-społeczeństwo" class="level2 page-columns page-full" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="wykresy-mające-edukować-społeczeństwo"><span class="header-section-number">3.5</span> Wykresy mające edukować społeczeństwo</h2>
+<p>Obok umiejętności czytania, pisania i liczenia potrzebna jest edukacja związana z wnioskowaniem statystycznym. Umożliwi to społeczeństwu lepsze zrozumienie otaczającego nas świata i zmian, jakie w tym świecie zachodzą.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-iso4c" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/rodzynki_05.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;3.5: Światowe imperia w różnych okresach historii. Źródło: <em>Modern Man in the Making</em>, Otto Neurath.</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Jak się jednak okazuje, nie jest to wcale taki nowy trend. Już sto lat temu socjolog Otto Neurath twierdził, że grafika statystyczna powinna pełnić rolę edukacyjną dla społeczeństwa. Aby to stało się możliwe, musi być zrozumiała i interesująca, łatwa do zapamiętania i precyzyjna. W tym celu Neurath w latach trzydziestych XX wieku opracował język ISOTYPE, zaprojektowany do łatwego zrozumienia wykresów, tak by na ich podstawie możliwa była ,,edukacja wizualna’’ społeczeństwa.</p>
+<div class="column-screen-inset-right">
+<div id="fig-magda" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/rodzynki_06.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;3.6: Frakcja osób z niedowagą lub nadwagą w różnych grupach wiekowych. Dane przedstawiono zgodnie z regułami języka ISOTYPE. Użycie pogrubionych ikon w czerwonym kolorze do oznaczenia osób otyłych może spowodować optyczne powiększenie udziału tej grupy. Źródło: Magda Małczyńska-Umeda dla Fundacji SmarterPoland.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Język <a href="http://bit.ly/1J23Cs9">ISOTYPE</a> to zestaw symboli i reguł, wskazówek, jak prezentować graficznie informacje w sposób zrozumiały dla szerokiego odbiorcy. Zawiera listy precyzyjnie zaprojektowanych znaków/piktogramów o uniwersalnych znaczeniach oraz reguły czytelnego i dokładnego używania tych piktogramów w celu prezentowania informacji. Jedną z najbardziej charakterystycznych reguł jest zasada używania powtórzeń znaku do przedstawiania wielkości. Porównując dwie wartości, z których jedna jest o 50% większa od drugiej, na wykresie paskowym użylibyśmy dwóch pasków, z których jeden byłby o 50% dłuższy niż drugi. W pewnych sytuacjach wykorzystanie liczby powtórzeń piktogramu zamiast długości pozwala na czytelniejsze i ciekawsze zaprezentowanie określonej wartości.</p>
+<p>Ten ,,język wizualny’’ został tak skonstruowany, by ułatwić zrozumienie danych liczbowych opisujących współczesny świat. Jedno z większych dzieł stworzonych z użyciem tego języka to <a href="http://bit.ly/207glBb">Modern man in the making</a> (1939) <span class="citation" data-cites="Neurath">(<a href="references.html#ref-Neurath" role="doc-biblioref">Neurath 1940</a>)</span>, autorstwa Otto Neuratha. Książka ta przedstawia zbiór ciekawych statystyk dotyczących społeczeństwa, pokazujących, jak wyglądał ówczesny świat. Dzisiaj dzieła Ottona Neuratha są dostępne w domenie publicznej. Rysunek <a href="#fig-iso4c">Figure&nbsp;<span>3.5</span></a> pochodzi z tej drugiej i przedstawia wielkość różnych imperiów na przestrzeni dziejów.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Neurath" class="csl-entry" role="doc-biblioentry">
+Neurath, Otto. 1940. <span>“Modern Man in the Making.”</span> <em>Philosophy of Science</em> 7 (1): 133–34. <a href="https://isotyperevisited.org/">https://isotyperevisited.org/</a>.
+</div></div><p>Więcej o języku ISOTYPE można przeczytać w artykule <a href="http://smarterpoland.pl/index.php/2012/11/mlodzi-xxl-eurostat-a-problem-nadwagi-i-otylosci-odpowiedz-grafika/"><em>Młodzi XXL, Eurostat a problem nadwagi i otyłości</em></a> przygotowanym przez Magdę Małczyńską-Umeda.</p>
+</section>
+<section id="zadania" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="zadania"><span class="header-section-number">3.6</span> Zadania</h2>
+<p>Chciałbyś poznać więcej epickich wykresów tworzących historie wizualizacji danych? Wystarczy wykonać poniższe zadania.</p>
+<ol type="1">
+<li>Jednym z ojców graficznej wizualizacji danych był William Playfair. Wynalazł on wiele pomysłowych sposobów prezentacji danych. Dzieło Playfaira zawierające te wykresy było prawdziwym bestsellerem w jego czasach. Zapoznaj się z listą różnych wykresów przedstawionych na jego stronie w <a href="https://en.wikipedia.org/wiki/William_Playfair">Wikipedii</a>. Który z tych wykresów uznasz za najbardziej ciekawy/przełomowy?</li>
+<li>Jednym z najciekawszych wykresów wszech czasów jest wykres pudełkowy zaproponowany przez Johna Tukeya. W artykule <a href="https://vita.had.co.nz/papers/boxplots.pdf">40 years of boxplots</a> znajduje się ciekawe omówienie różnych modyfikacji tego wykresu. Która z nich jest Twoim zdaniem najbardziej informatywna?</li>
+<li>Bardzo oryginalnym i pomysłowym sposobem prezentacji danych jest wykres łodyga-liście. Możesz o nim przeczytać więcej na odpowiedniej stronie w <a href="https://en.wikipedia.org/wiki/Stem-and-leaf_display">Wikipedii</a>. Czy potrafisz powiedzieć, gdzie najczęściej jest on dzisiaj stosowany?</li>
+</ol>
+<p>Jeżeli chciałbyś dowiedzieć się więcej o tych i innych wykresach, które odegrały znaczącą rolę, to może zainteresować Cię esej <em>Perełki z historii</em> z książki <em>Odkrywać! Ujawniać! Objaśniać!</em></p>
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

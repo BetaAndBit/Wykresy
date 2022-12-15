@@ -210,7 +210,8 @@ Wilkinson, Leland. 1999. <em>The Grammar of Graphics</em>. New York: Springer.
 <h2 data-number="6.1" class="anchored" data-anchor-id="przygotowanie-do-pracy"><span class="header-section-number">6.1</span> Przygotowanie do pracy</h2>
 <p>W tym rozdziale przedstawiamy instrukcje pozwalające na odtworzenie wykresów z rozdziału <em>Sprawdzone przepisy</em>. Aby przedstawione poniżej polecenia zadziałały, należy wcześniej zainstalować program <code>R</code>. Można go pobrać ze strony <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>. Następnie należy zainstalować pakiet statystyczny <code>ggplot2</code>, co można zrobić instrukcją <code>install.packages("ggplot2")</code> wpisaną do uruchomionego programu R.</p>
 <p>Po zainstalowaniu niezbędnych komponentów należy włączyć ten pakiet poleceniem <code>library()</code>. Po wykonaniu tych instrukcji mamy dostęp do funkcji graficznych opisanych poniżej.</p>
-<pre><code>library("ggplot2")</code></pre>
+<pre><code>library("ggplot2")
+library("ggthemes")</code></pre>
 <p>Teraz potrzebujemy danych, które możemy przedstawić na wykresach. Pakiet <code>ggplot2</code> (jak i wiele innych narzędzi) zakłada, że dane znajdują się w postaci tabelarycznej, w której w kolumnach ujęte są zmienne, a w wierszach obserwacje.</p>
 <p>Przykłady przedstawione w tym rozdziale oparte są na danych o produktach spożywczych, które poznaliśmy już w rozdziale <em>Sprawdzone przepisy</em>. Dane znajdują się w pakiecie <code>BetaBit</code> i po wczytaniu tego pakietu będą dostępne w zbiorze danych <code>food</code>. Dane są dostępne w języku angielskim, ale poniżej dla czytelności przedstawiliśmy nazwy zmiennych przetłumaczone na język polski.</p>
 <pre><code>library("BetaBit")

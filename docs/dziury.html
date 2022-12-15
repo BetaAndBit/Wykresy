@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -61,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -130,12 +150,24 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatura</a>
   </div>
 </li>
     </ul>
     </div>
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Spis treści</h2>
+   
+  <ul>
+  <li><a href="#dziury-w-percepcji-kolorów" id="toc-dziury-w-percepcji-kolorów" class="nav-link active" data-scroll-target="#dziury-w-percepcji-kolorów"><span class="toc-section-number">4.1</span>  Dziury w percepcji kolorów</a></li>
+  <li><a href="#jak-żyć-z-kolorami" id="toc-jak-żyć-z-kolorami" class="nav-link" data-scroll-target="#jak-żyć-z-kolorami"><span class="toc-section-number">4.2</span>  Jak żyć z kolorami?</a></li>
+  <li><a href="#dziury-w-percepcji-kształtów" id="toc-dziury-w-percepcji-kształtów" class="nav-link" data-scroll-target="#dziury-w-percepcji-kształtów"><span class="toc-section-number">4.3</span>  Dziury w percepcji kształtów</a></li>
+  <li><a href="#jak-żyć-z-kształtami" id="toc-jak-żyć-z-kształtami" class="nav-link" data-scroll-target="#jak-żyć-z-kształtami"><span class="toc-section-number">4.4</span>  Jak żyć z kształtami?</a></li>
+  <li><a href="#dziury-w-percepcji-kompozycji" id="toc-dziury-w-percepcji-kompozycji" class="nav-link" data-scroll-target="#dziury-w-percepcji-kompozycji"><span class="toc-section-number">4.5</span>  Dziury w percepcji kompozycji</a></li>
+  <li><a href="#jak-żyć-z-percepcją-kompozycji-wykresu" id="toc-jak-żyć-z-percepcją-kompozycji-wykresu" class="nav-link" data-scroll-target="#jak-żyć-z-percepcją-kompozycji-wykresu"><span class="toc-section-number">4.6</span>  Jak żyć z percepcją kompozycji wykresu?</a></li>
+  <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania"><span class="toc-section-number">4.7</span>  Zadania</a></li>
+  </ul>
+</nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -161,10 +193,209 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><img src="grafiki/okladka_dziury.png" class="img-fluid"></p>
-<p>W tym rozdziale porozmawiamy o standardach wykorzystywanych przy tworzeniu wykresów statystycznych. Dlaczego standardy są tak ważne? Wyobraźmy sobie, że przygotowujemy serię raportów, w których znajdzie się kilkadziesiąt lub kilkaset wykresów. Jeżeli każdy wykres będzie rządził się innymi prawami, to czytelnik za każdym razem będzie musiał zgadywać, jak dany wykres czytać. Znacznie szybciej pojawi się zmęczenie wywołane koniecznością odcyfrowywania zapisu dla i tak bardzo złożonych zależności. Zwiększy się ryzyko złego odczytania danych i czas potrzebny na zrozumienie całości. Profesjonaliści nie mogą sobie na takie błędy pozwolić.</p>
-<div class="page-columns page-full"><p>Podczas pracy w OECD obserwowałem, jak nad raportem z badania PISA  pracuje liczny, kilkunastoosobowy zespół analityków. Wyniki prac tego zespołu trafiły do tysięcy odbiorców, począwszy od specjalistów od badań edukacyjnych, przez dziennikarzy, po rodziców zainteresowanych zróżnicowaniem umiejętności nastolatków w ponad 65 krajach uczestniczących w badaniach PISA. Na bazie tych wyników podejmowane są często istotne decyzje dotyczące systemu edukacji. Aby te wyniki były czytelne dla szerokiego grona odbiorców, niezbędna jest standaryzacja wykresów.</p><div class="no-row-height column-margin column-container"><span class="">OECD: Organizacja Współpracy Gospodarczej i Rozwoju, organizacja międzynarodowa o skupiająca 38 wysoko rozwiniętych i demokratycznych państw.</span><span class="">PISA: Programme for International Student Assessment, międzynarodowe badanie, którego celem jest uzyskanie porównywalnych danych o umiejętnościach uczniów, którzy ukończyli 15. rok życia w celu poprawy jakości nauczania i organizacji systemów edukacyjnych.</span></div></div>
+<p>W tym rozdziale zmierzymy się z trudnościami w interpretowaniu kolorów, iluzjami dotyczącymi kształtów, a także innymi niedoskonałościami ludzkiego systemu percepcji obrazu. Systemu, który ewoluował przez tysiące lat, ale po to, by zapewnić nam przetrwanie na sawannie, a nie precyzyjne odczytywanie wykresów statystycznych. Zrozumienie mechanizmów rządzących percepcją to ważny, choć często pomijany krok na drodze do tworzenia czytelnych grafik. Ja sam dosyć długo skupiony byłem wyłącznie na poprawności matematycznej w kodowaniu danych na wykresach, nie przejmując się ograniczeniami percepcji odbiorcy. Ale dekadę temu, za sprawą serii rozmów z Rossem Ihaką, zmieniłem swój sposób myślenia całkowicie. Ross Ihaka to jeden z dwóch głównych twórców języka R, człowiek skupiony na tworzeniu narzędzi do analizy statystycznej i komunikacji danych. W 2005 roku opracował kurs ,,Information Visualisation’’ specjalnie dla studentów statystyki, po to by lepiej zrozumieli, jak działa droga wzrokowa, co wpływa na percepcję obrazu czy percepcję kolorów. Kurs jest dostępny pod adresem <a href="https://www.stat.auckland.ac.nz/~ihaka/courses/120/">https://www.stat.auckland.ac.nz/~ihaka/courses/120/</a>. Zobaczmy, jakie pułapki zgotowała nam percepcja, a później przedyskutujmy rozwiązania, które pozwolą zwiększyć czytelność danych na wykresach statystycznych.</p>
+<p>Drogi Czytelniku, czas, byś poznał absolutnie najważniejszą prawdę o wizualizacji danych: <em>Nie jest ważne, co narysowałeś na wykresie, kluczowe jest, co zostanie odczytane</em>.</p>
+<p>Powiesz, że to nie może być trudne? Że przecież każdy z nas od urodzenia uczy się patrzeć i szukać informacji w obrazie? Niestety dosyć często nasza percepcja zachowuje się niezgodnie z naszą intuicją. Gorzej – ona celowo zwodzi nas na manowce. Jeżeli chcemy, aby nasze wykresy były dobrze odczytywane, powinniśmy poznać kilka ograniczeń naszej percepcji oraz nauczyć się sobie z nimi radzić. Poniżej omówimy trzy rodzaje problemów, których dostarcza nam nasza percepcja. Na szczęście z każdym z nich można sobie jakoś poradzić.</p>
+<section id="dziury-w-percepcji-kolorów" class="level2 page-columns page-full" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="dziury-w-percepcji-kolorów"><span class="header-section-number">4.1</span> Dziury w percepcji kolorów</h2>
+<p>Kolor jaki jest, każdy widzi. Czyżby? Zobaczmy, jak o kolorach myślało dwóch wielkich badaczy – Isaak Newton i Johann Wolfgang von Goethe. Już w szkole podstawowej poznajemy perspektywę Newtona, uczymy się o fizycznych właściwościach światła, o tym, że białe światło jest mieszaniną fal różnych długości, które można rozszczepić pryzmatem, o zresztą Isaac Newton pokazał w 1672 roku. Takie myślenie o kolorach skupione jest na fizycznych właściwościach mieszaniny fal różnych długości.</p>
+<p>Zupełnie inaczej o kolorach pisał Johann Wolfgang von Goethe. Zauważył on pewne rozbieżności pomiędzy Newtonowskim fizycznym opisem światła a postrzeganiem kolorów przez człowieka. Zaobserwował on, że kolor pojawia się nie tylko tam, gdzie jest światło, ale też tam, gdzie nie ma światła. Jeżeli patrzymy na silne źródło światła, takie jak słońce lub biały śnieg w słoneczny dzień, a następnie wejdziemy do zupełnie zacienionego pokoju, to zaobserwujemy wrażenie wirujących czerwonych kręgów. Z obserwacji Goethego wynikało, że miejsca ocienione wydają się mieć kolory szczególnie wtedy, gdy sąsiadują np. ze śniegiem silnie odbijającym światło. Choć cień to przecież, zgodnie z teorią Newtona, miejsce, gdzie nie ma światła, nie ma więc kolorów.</p>
+<p>Tak więc wrażenia barwne zależą zarówno od tego, co widzieliśmy wcześniej, jak i tego, co jeszcze znajduje się w naszym polu widzenia. Swoje wyniki Goethe opublikował w 1810 roku w dziele <em>Teoria kolorów</em> <span class="citation" data-cites="Goethe22">(<a href="references.html#ref-Goethe22" role="doc-biblioref">Goethe 1810. </a>)</span>, które ponoć cenił bardziej niż swoją twórczość poetycką. W swojej teorii Goethe dużą wagę przywiązywał do wrażeń kolorów, ich percepcji w zależności od różnych czynników, również emocji obserwatora. Goethe uważał, że jego teoria jest przeciwstawna do teorii Newtona.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Goethe22" class="csl-entry" role="doc-biblioentry">
+Goethe, Johann Wolfgang von. 1810. <em>Zur Farbenlehre / Theory of Colours</em>. J.G. Cotta Tubingen.
+</div><div class="">
+<div id="fig-szachownica" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.1: Szachownica Adelsona. Czy pola A i B są tego samego, czy różnych kolorów? Wykonane przez Adriana Pingstona na podstawie prac Edwarda Adelsona</figcaption><p></p>
+</figure>
+</div>
+</div></div>
+<p>Drogi Czytelniku, jeżeli w tym miejscu myślisz, że ta cała subiektywna teoria kolorów to ściema, to znaczy że jesteś gotów na eksperyment, który unaoczni Ci, że te same kolory mogą być różnie odczytywane. Na marginesie, na rysunku <a href="#fig-szachownica">Figure&nbsp;<span>4.1</span></a> znajdziesz ilustrację opublikowaną po raz pierwszy przez Edwarda Adelsona w roku 1995. Spójrz na górny panel. Czy pola A i B na szachownicy mają różne kolory? Prawdopodobnie bez cienia wątpliwości stwierdzimy, że pole A jest ciemniejsze niż pole B. Jednak gdyby usunąć z tego rysunku kontekst, np. zasłonić palcem wszystko poza tymi polami, lub też połączyć te pola pasem, wtedy zauważymy, że w rzeczywistości są one tego samego koloru.</p>
+<p>W zależności od kontekstu możemy sprawić, by kolor szary był postrzegany jako kolor żółty lub niebieski, czego przykładem jest zdjęcie sukienki z rysunku <a href="#fig-sukienka">Figure&nbsp;<span>4.2</span></a>. Kilka lat temu przez Internet przetoczyła się prawdziwa wojna o to, by ustalić, czy jest to czarno-niebieska sukienka, czy biało-złota. Począwszy od serwisu Tumblr po bardzo szanowane czasopisma naukowe dyskutowano o tej iluzji. Okazuje się, że różne osoby odczytują różnie kolory z tego zdjęcia w zależności od tego, co założą o źródle i barwie oświetlenia tej sukienki.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-sukienka" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.2: Fotografia Caitlin McNeill z 2015 roku</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Jeżeli chcecie zobaczyć więcej iluzji związanych z kolorami, to warto odwiedzić Centrum Nauki Kopernik, które ma całą sekcję poświęconą kolorom. Rysunek <a href="#fig-zuczki">Figure&nbsp;<span>4.3</span></a> pokazuje np. te same trzy plansze z żuczkami oświetlone różnymi kolorami. Za każdym razem inaczej odbieramy względne kolory żuczków. W zależności od oświetlenia barwa obiektów może się bardzo różnić.</p>
+<p>Podobny problem dotyczy wykresów drukowanych np. w gazetach lub firmowych raportach, gdy oglądamy je w różnym świetle, np. dziennym lub w świetle nocnej lampki. Jeszcze inaczej ten sam wykres będzie wyglądał na ekranie laptopa, który ma wysoką jasność i wysoki kontrast.</p>
+<div id="fig-zuczki" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.3: Kolaż zdjęć z wystawy w Centrum Nauki Kopernik. Ta sama plansza z trzema żuczkami widziana w różnym oświetleniu</figcaption><p></p>
+</figure>
+</div>
+<p>Jakby problemów z kolorami było mało, to dodatkowo około 5% populacji ma różnego rodzaju zaburzenia związane z postrzeganiem kolorów, często nazywane ,,ślepotą barw’’.</p>
+<div class="page-columns page-full"><p>Przyczyn zaburzeń postrzegania kolorów jest wiele, od genetycznych, przez związane z nabytymi urazami, niepożądanym działaniem leków, chorobami czy wiekiem. Całkowita niezdolność do rozróżniania kolorów jest bardzo rzadka, zazwyczaj upośledzenie widzenia kolorów dotyczy możliwości rozróżniania określonych kolorów. Mutacje sprzężone z genami na chromosomie X powodują zaburzenia w rozwoju lub całkowity brak czopków  określonego typu, rzadziej dwóch typów. Ponieważ kobiety mają dwa chromosomy X, a mężczyźni tylko jeden, to tego typu zaburzenia występują znacznie częściej u mężczyzn. Około 5–10% mężczyzn ma jakieś genetyczne problemy z postrzeganiem kolorów, w przypadku kobiet problemy te występują u mniej niż 1% populacji</p><div class="no-row-height column-margin column-container"><span class="">Czopki to światłoczułe receptory siatkówki oka, które zawierają specyficzne białka receptorowe, absorbujące światło w różnych zakresach długości fali. Czopki umożliwiają widzenie kolorów</span></div></div>
+<p>Najczęstsze zaburzenia widzenia barw to deuteranopia, czyli trudności z rozróżnieniem kolorów czerwonego i zielonego wywołane nieprawidłowym funkcjonowaniem czopków M w siatkówce oka.</p>
+<div class="column-screen-inset-right">
+<div id="fig-blindB" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_04.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.4: Mapa ciepła dla danych o produktach żywieniowych. Lewy panel to mapa z kolorami rozpiętymi pomiędzy zielonym i czerwonym. Prawy panel ilustruje, jak tę mapę widzą osoby z deuteranopią – ślepotą barw, która dotyka około 5% osób</figcaption><p></p>
+</figure>
+</div>
+<div id="fig-blindA" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_05.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.5: Lewy panel to mapa ciepła z kolorami rozpiętymi pomiędzy czerwonym a niebieskim. Panel prawy pokazuje, jak tę mapę widzą osoby z deuteranopią</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Jeżeli w opracowanej przez nas wizualizacji danych kolory pełnią kluczową funkcję i chcemy upewnić się, że przynajmniej osoby z typowymi dysfunkcjami widzenia kolorów będą w stanie odczytać informacje z wykresu, możemy wykorzystać symulator ślepoty barw. Jednym z takich symulatorów jest <a href="http://colororacle.org/"><em>Color Oracle for the Color Impaired</em></a>, który pozwala zmienić obraz wyświetlany na ekranie komputera na taki, jaki widzą osoby z najczęstszymi zaburzeniami.</p>
+</section>
+<section id="jak-żyć-z-kolorami" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="jak-żyć-z-kolorami"><span class="header-section-number">4.2</span> Jak żyć z kolorami?</h2>
+<p>Kolor jest zdecydowanie najsilniejszą przyprawą, jaką możesz dodać do wykresu. Dobrze dobrany wyróżni to, co ważne, zwróci uwagę na kluczowe obszary. Źle dobrany, przedawkowany, zamieni cały wykres w hałaśliwy bełkot.</p>
+<p>Kolor na wykresie może pełnić funkcję wyróżniającą (czerwona kropka na tle szarych punktów) lub kodującą wartości pewnej zmiennej. Aby zakodować wartości zmiennej, stosuje się trzy schematy kodowania (patrz rysunek <a href="#fig-colorbrewer">Figure&nbsp;<span>4.6</span></a>). Schematami tymi są:</p>
+<ul>
+<li>skala dla zmiennych ilościowych (ang. <em>quantitative</em>) – to skala, w której natężeniem lub jasnością koloru przedstawia się spektrum wartości zmiennej. Wartości najmniejsze najczęściej są kodowane przez jasne kolory, a wartości większe – przez intensywne kolory. Przykładem może być kaloryczność produktu;</li>
+<li>skala rozbieżnych kolorów (ang. <em>divergent</em>) dla zmiennych ilościowych z elementem neutralnym – to skala, w której chcemy zaznaczyć rozpiętość jakiejś zmiennej pomiędzy dwiema skrajnymi wartościami, najczęściej z zaznaczeniem wartości neutralnej. Skala ta świetnie się sprawdza w odróżnianiu, które punkty są poniżej, a które powyżej wartości referencyjnej. Przykładem może być temperatura z elementem neutralnym równym 0;</li>
+<li>skala dla zmiennych jakościowych (ang. <em>qualitative</em>) – to skala, w której chcemy dobrać <span class="math inline">\(k\)</span> kolorów możliwie odróżnialnych od siebie. Takimi skalami na wykresach często koduje się grupy obserwacji i chcemy, by każdą grupę dało się niezależnie zauważyć i by się nie myliła z innymi grupami. Przykładem może być kodowanie grupy produktów żywnościowych.</li>
+</ul>
+<div id="fig-colorbrewer" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_06.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.6: Trzy zestawy siedmiu kolorów wybranych z zestawu palet kolorów ColorBrewer. Pierwsza znajdzie zastosowanie w prezentacji zmiennej o wartościach uporządkowanych (np. w skali od 100 do 200), druga w prezentacji wartości uporządkowanych z elementem neutralnym (np. od -10 do 10), trzecia w prezentacji zmiennej o wartościach nieuporządkowanych</figcaption><p></p>
+</figure>
+</div>
+<p>Skąd się biorą te skale? Aby odpowiedzieć na to pytanie, musimy się bliżej przyjrzeć anatomii koloru. Zacznijmy od liczbowego opisu koloru. Jeżeli często pracujemy z grafiką wyświetlaną na ekranach komputera, to najbardziej naturalną reprezentacją koloru będzie dla nas skala RGB (od ang. <em>red, green, blue</em>). Kolor opisywany jest przez intensywność świecenia emiterów trzech różnych długości fal odpowiadających kolorowi czerwonemu, zielonemu i niebieskiemu. Ale jeżeli często pracujemy z drukiem cyfrowym, to znacznie częściej kolor komunikujemy w skali CMYK (od ang. <em>cyan, magenta, yellow, black</em>), opisującej cztery kolory tuszu używane w procesie drukowania. Na ekranie kolory są wynikiem emitowania światła kolorowego, w druku kolory są wynikiem różnej absorbcji światła białego przez zadrukowaną kartkę. W przypadku druku offsetowego znacznie częściej posługujemy się skalą Pantone.</p>
+<p>Okazuje się, że najbardziej naturalną skalą myślenia o kolorach przy projektowaniu wykresów statystycznych jest skala HCL (ang. <em>hue, chroma, luminance</em>). Pozwala ona rozłożyć kolor na trzy składowe, które możemy niezależnie analizować na wykresach <span class="citation" data-cites="Zeileis20093259">(<a href="references.html#ref-Zeileis20093259" role="doc-biblioref">Zeileis, Hornik, and Murrell 2009</a>)</span>. Rysunek <a href="#fig-hcl">Figure&nbsp;<span>4.7</span></a> przedstawia różnice pomiędzy każdą z tych trzech składowych. Pierwszy pasek przy ustalonej jasności i natężeniu różni się jedynie barwą, drugi jasnością, a trzeci natężeniem.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Zeileis20093259" class="csl-entry" role="doc-biblioentry">
+Zeileis, Achim, Kurt Hornik, and Paul Murrell. 2009. <span>“Escaping RGBland: Selecting Colors for Statistical Graphics.”</span> <em>Computational Statistics and Data Analysis</em> 53 (9): 3259–70.
+</div><div class="">
+<div id="fig-hcl" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_07.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.7: Trzy zestawy siedmiu kolorów różniących się jedynie jedną współrzędną w przestrzeni HCL: barwą, jasnością lub natężeniem. Widzimy, że jednostajne rozłożenie współrzędnych przekłada się na jednostajne różnice w percepcji koloru</figcaption><p></p>
+</figure>
+</div>
+</div></div>
+<p>Mając taki opis kolorów, możemy konstruować skale kolorów o bardzo użytecznych właściwościach. Aby zbudować skalę dla zmiennej jakościowej, ustalamy takie same składowe C i L, a w składowej H szukamy zbioru <span class="math inline">\(k\)</span> równie oddalonych punktów. Aby zbudować skalę dla zmiennej jakościowej, wybieramy sobie składową H i C, a później konstruujemy skalę, zmieniając wartości składowej L.</p>
+<p>W ten sposób powstały skale ColorBrewer <span class="citation" data-cites="Brewer1994">(<a href="references.html#ref-Brewer1994" role="doc-biblioref">Brewer 1994</a>)</span>, opracowane przez profesor Cynthie Brewer, zajmującą się zawodowo tworzeniem kartogramów, w tym doborem kolorów dla tych wykresów. Na stronie <a href="http://colorbrewer2.org/">http://colorbrewer2.org/</a> znaleźć można różne propozycje tych skal, w zależności od tego, ilu kolorów potrzebujemy oraz jaką rolę ma pełnić dana skala kolorów <span class="citation" data-cites="ColorBrewer">(<a href="references.html#ref-ColorBrewer" role="doc-biblioref">Brewer 2022</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Brewer1994" class="csl-entry" role="doc-biblioentry">
+Brewer, Cynthia. 1994. <span>“Color Use for Mapping and Visualization.”</span> <em>Visualization in Modern Cartography</em>, 123–47.
+</div><div id="ref-ColorBrewer" class="csl-entry" role="doc-biblioentry">
+———. 2022. <em>ColorBrewer: Color Advice for Maps</em>. <a href="http://colorbrewer2.org/">http://colorbrewer2.org/</a>.
+</div></div><p>Warto też zwrócić uwagę, że w tych schematach kolorów nie ma bardzo intensywnych barw. Dominują pastele i inne łagodne kolory. Jest to związane z faktem, że duże obszary bardzo intensywnych kolorów o bardzo dużym kontraście są na dłuższą metę dla oka bardzo męczące. Ostatnim efektem, jaki chcemy uzyskać naszą wizualizacją danych, jest efekt szybkiego męczenia się oka (i w konsekwencji całego obserwatora).</p>
+<p>Jeżeli chcesz dobrze żyć z kolorami, to pamiętaj:</p>
+<ul>
+<li>Unikaj niepotrzebnego użycia kolorów. Jeżeli kolor nie pełni funkcji na wykresie, to będzie tylko przeszkadzał.</li>
+<li>Unikaj krzykliwych kolorów. Zarezerwuj intensywne kolory na naprawdę wyjątkowe okazje, nie nękaj nimi bez powodu.</li>
+<li>Jeżeli już używasz kolorów, to zastanów się, jaką rolę pełnią. Czy są wyróżnikiem jednego wyjątkowego punktu, na który czytelnik ma zwrócić uwagę? Czy pełnią rolę grupującą podobne obiekty i na różnych wykresach to grupowanie prowadzone jest w sposób spójny?</li>
+<li>Spójrz krytycznie na wybrane kolory. Czy użyta skala (jakościowa, ilościowa, rozbieżna) jest zgodna z funkcją na wykresie?</li>
+</ul>
+</section>
+<section id="dziury-w-percepcji-kształtów" class="level2 page-columns page-full" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="dziury-w-percepcji-kształtów"><span class="header-section-number">4.3</span> Dziury w percepcji kształtów</h2>
+<p>Czy uwierzycie, że w naszym polu widzenia jest spory obszar, w którym tak naprawdę nic nie widzimy? Jest tak, ponieważ siatkówka nie pokrywa całej tylnej ściany gałki ocznej, ale w pewnym obszarze w siatkówce jest dziura, przez którą wychodzą nerwy wzrokowe w kierunku mózgu.</p>
+<p>Dlaczego nie widzimy, że nie widzimy? Mózg nam pomaga uzupełnić ten obraz i robi to na tyle sprawnie, że najczęściej nie zauważamy żadnego braku. Ale prosty eksperyment pokazuje, jak działa ten stary oszust. Sprawdźcie sami.</p>
+<p>Przyjrzyj się poniższemu rysunkowi. Zamknij lewe oko, a prawym patrz prosto na kropkę po lewej stronie. Patrząc cały czas na czarną kropkę, przesuwaj powoli kartkę bliżej w kierunku oka. W pewnej odległości (mniej więcej 15 centymetrów) zauważysz, że czarny krzyżyk zniknie, choć wciąż powinien znajdować się w polu widzenia. Nie będziesz jednak go widział, ponieważ jego obraz wyświetli się na ślepą plamkę, na której nie ma receptorów. Jeżeli dalej przesuniesz kartkę, krzyżyk znowu się pojawi.</p>
+<div class="column-screen-inset-right">
+<div id="fig-oko2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_08.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.8: Prosty eksperyment pozwalający zaobserwować efekty działania plamki ślepej. Patrząc prawym okiem na lewą kropkę, znajdziemy taką odległość od kartki, że czarny krzyżyk zniknie z pola widzenia</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Niesamowite, prawda? Jeszcze bardziej niesamowite jest to, że obraz padający na ślepą plamkę nie jest tak po prostu wycinany. Nie jest przecież tak, że cały czas widzimy białą dziurę w polu widzenia. W rzeczywistości obraz jest uzupełniany przez mózg na podstawie jego otoczenia!</p>
+<p>To jednak nie koniec sztuczek naszej percepcji. Lubi ona podkręcać kontrast nawet w sytuacjach, gdy jest to całkowicie zbędne. Na marginesie na rysunku <a href="#fig-titchener">Figure&nbsp;<span>4.9</span></a> przedstawiona jest iluzja Titchenera. Które centralne koło jest większe, to u góry, czy to na dole?</p>
+<p>Oczywiście okazuje się, że oba wewnętrzne koła są równie duże.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-titchener" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_09.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.9: Iluzja Titchenera, nazwana od jej odkrywcy, którym był Edward Bradford Titchener (1867–1927). Koła umieszczone w centrum mają takie same wielkości, są jednak postrzegane jako koła o różnych wielkościach w zależności od tego, w jakim znajdują się otoczeniu. Źródło: opracowanie na bazie Wikipedii.</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Podobnie ma się sytuacja z pseudoperspektywą. Widząc zdjęcia, spodziewać się możemy, że zdjęcie trójwymiarowego obiektu może przedstawiać perspektywę. Ale nawet w przypadku bardzo abstrakcyjnych rysunków, w których występują elementy tylko sugerujące perspektywę, nasz umysł będzie modyfikował ocenę wielkości, zakładając występowanie perspektywy nawet w sytuacjach, gdzie żadną miarą nie może być mowy o prawdziwej perspektywie. W oczywisty sposób zakłóca to ocenę wielkości.</p>
+<div id="fig-iluzja2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_10.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.10: Oba pogrubione odcinki mają tę samą długość. Ukośne linie sugerują jednak perspektywę, ze względu na którą odcinki odbieramy jako będące różnej długościi. Źródło: domena publiczna.</figcaption><p></p>
+</figure>
+</div>
+<p>Problem w ocenie wielkości nie jest spowodowany wyłącznie kontekstem czy nieistniejącą perspektywą. Pewnych charakterystyk po prostu nasz mózg nie jest w stanie dobrze ocenić. Świetnym przykładem są kąty. Jesteśmy w stanie z dużą dokładnością ocenić, czy kąt jest bliski kątowi prostemu, ale mamy duże problemy z oceną wielkości kątów ostrych i rozwartych. Nasz mózg ma skłonność do zawyżania wielkości kątów ostrych i zaniżania kątów rozwartych.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-Poggendorffa" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_11.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.11: Iluzja Poggendorffa związana z trudnością w dokładnej ocenie kątów. Linia widoczna po lewej stronie jest przedłużeniem jednej z linii widocznych po prawej stronie. Której? Źródło: opracowanie na bazie Wikipedii.</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Ciekawą ilustracją tej skłonności jest iluzja opisana przez Johanna Poggendorffa (1796–1877). Na rysunku <a href="#fig-Poggendorffa">Figure&nbsp;<span>4.11</span></a> linia widoczna po lewej stronie prostokąta jest przedłużeniem jednej z linii widocznych po prawej stronie. Której?</p>
+<p>W tym paradoksie, oceniając kąt pomiędzy lewym odcinkiem a szarym prostokątem, nasz mózg ma skłonność do zawyżania oceny tego kąta. Przez to mamy wrażenie, że przedłużeniem lewego odcinka jest odcinek prawy górny. Można łatwo sprawdzić, mając linijkę lub inny przedmiot o prostej krawędzi, że w rzeczywistości to prawy dolny odcinek jest przedłużeniem lewego.</p>
+</section>
+<section id="jak-żyć-z-kształtami" class="level2 page-columns page-full" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="jak-żyć-z-kształtami"><span class="header-section-number">4.4</span> Jak żyć z kształtami?</h2>
+<p>Wielu badaczy interesowało się problemem wyboru charakterystyk wizualnych na wykresie, które w bezpieczny sposób mogą kodować wartości ilościowe. Pierwszą z prac poświęconych percepcji wielkości kształtów używanych na wykresach była praca <em>The Visual Decoding of Quantitative Information on Statistical Graphs</em> <span class="citation" data-cites="Cleveland1987b">(<a href="references.html#ref-Cleveland1987b" role="doc-biblioref">Cleveland and McGill 1987</a>)</span>. Jej autorzy po przeprowadzeniu zbioru eksperymentów przygotowali hierarchię charakterystyk uwzględniającą precyzję odczytywania wartości.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Cleveland1987b" class="csl-entry" role="doc-biblioentry">
+Cleveland, William, and Robert McGill. 1987. <span>“<span class="nocase">Graphical Perception: The Visual Decoding of Quantitative Information on Statistical Graphs</span>.”</span><em> of the Royal Statistical Society Series A</em> 150: 192–229.
+</div></div><p>Ta hierarchia jest przedstawiona na rysunku <a href="#fig-figiluzjeMiary">Figure&nbsp;<span>4.12</span></a>, a można ją streścić w postaci następujących reguł. (1) Najdokładniej odczytywane są pozycje obiektów rozmieszczonych wzdłuż wspólnej skali (przykładowo wykres kropkowy). (2) Poprawnie odczytywane są długości odcinków rozmieszczonych wzdłuż wspólnej skali. (3) Przeciętnie poprawnie odczytywane są pozycje obiektów wzdłuż takiej samej, ale nie wspólnej skali (przykładowo różne wykresy umieszczone na kartogramie). (4) Niezbyt dokładnie odczytywane są wielkości kątów i nachyleń (stosowane np. przy ocenie tempa wzrostu w wykresach liniowych). (5) Najtrudniej poprawnie odczytać wartości zakodowane jako pola powierzchni lub objętości nieregularnych brył.</p>
+<div id="fig-figiluzjeMiary" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_12.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.12: Średnie błędy percepcji w odróżnianiu wielkości różnych obiektów. Źródło: opracowanie na bazie wyników Clevelanda i McGilla.</figcaption><p></p>
+</figure>
+</div>
+<p>Czy tak faktycznie jest? Sprawdźmy! Na rysunku <a href="#fig-piecLiczb">Figure&nbsp;<span>4.13</span></a> przedstawiono te same pięć liczb na dwa sposoby – jako wycinki koła i jako punkty rozmieszczone wzdłuż jednej osi. Łatwość wskazania, która z wartości jest największa, a która najmniejsza, jest zupełnie inna. Dla wykresu kołowego trudno jest jednoznacznie określić porządek wartości A–E, w przypadku wykresu kropkowego nie mamy żadnych wątpliwości.</p>
+<p>W przypadku rysunku <a href="#fig-powierzchnieWojewodztw">Figure&nbsp;<span>4.14</span></a> przedstawione są powierzchnie województw za pomocą nieregularnych krzywych i za pomocą wykresu słupkowego. Gdzie łatwiej odczytać, które województwo i o ile jest większe od drugiego?</p>
+<div id="fig-piecLiczb" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_13.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.13: Na obu wykresach przedstawiono te same wartości. Źródło: opracowanie na bazie przykładu podanego przez Clevelanda i McGilla.</figcaption><p></p>
+</figure>
+</div>
+<div id="fig-powierzchnieWojewodztw" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_14.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.14: Które województwo jest większe i o ile? Różnice w wielkości znacznie łatwiej zauważyć, gdy wielkości są przedstawione jako długości odcinków, a nie nierównomierne powierzchnie. Województwo lubelskie ma powierzchnię 25 133 km<span class="math inline">\({}^2\)</span>, a województwo warmińsko-mazurskie ma powierzchnię 24 173 km<span class="math inline">\({}^2\)</span>. Źródło: opracowanie własne.</figcaption><p></p>
+</figure>
+</div>
+<p>Wnioskiem z tych badań jest więc to, że jeżeli chcemy pokazywać względne wielkości, to najlepiej używać takich charakterystyk jak długość i trzymać się z daleka od pól, objętości i nasycenia kolorów. Niestety, często nie zważa się na te badania i dlatego spotykamy kolory i powierzchnie razem używane do przedstawiania wielkości.</p>
+</section>
+<section id="dziury-w-percepcji-kompozycji" class="level2 page-columns page-full" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="dziury-w-percepcji-kompozycji"><span class="header-section-number">4.5</span> Dziury w percepcji kompozycji</h2>
+<p>Drogi Czytelniku, w poprzednich sekcjach pokazaliśmy przykłady, jak łatwo pomylić się w odczytywaniu kolorów czy kształtów na wykresach. Ale to nie koniec. W pewnych sytuacjach możemy nie zauważyć całego fragmentu wykresu, szczególnie jeżeli nasza uwaga jest skupiona gdzieś indziej.</p>
+<p>Analizując jakikolwiek wykres, nasz wzrok omiata cały obraz, ale szczegółowo analizuje jedynie wybrane fragmenty. Innych zupełnie nie widzi! Jeżeli uwaga oglądającego wykres nie jest skierowana w istotne miejsce, to może do niego nigdy nie dotrzeć.</p>
+<p>Interesującą ilustracją zjawiska wybiórczej uwagi jest eksperyment nazywany <em>,,niewidzialnym gorylem’’</em> <span class="citation" data-cites="Gorilla">(<a href="references.html#ref-Gorilla" role="doc-biblioref">Simons and Chabris 1999</a>)</span>. Osoby, które nie znają tego doświadczenia, a lubią eksperymentować, powinny w tym miejscu przerwać czytanie i wyszukać na portalu <em>youtube.com</em> film pod hasłem <a href="http://www.youtube.com/watch?v=vJG698U2Mvo"><em>Selective attention test</em></a>. Należy postępować zgodnie z instrukcjami lektora, a po obejrzeniu filmu wrócić do czytania reszty tego podrozdziału.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Gorilla" class="csl-entry" role="doc-biblioentry">
+Simons, Daniel, and Christopher Chabris. 1999. <span>“<span class="nocase">Gorillas in our midst: Sustained inattentional blindness for dynamic events</span>.”</span> <em>Perception</em> 28: 1059–74.
+</div></div><div id="fig-gorillalargecopyright" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/dziury_15.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;4.15: Zdjęcie z filmu ilustrującego eksperyment ,,niewidzialny goryl’’. W filmie przez środek pokoju powoli przechodzi goryl, jednak z uwagi na obciążenie poznawcze związane z liczeniem podań piłki część obserwatorów go nie zauważa. Patrząc na to zdjęcie, aż trudno w to uwierzyć. Źródło: korespondencja z Danielem Simonsem.</figcaption><p></p>
+</figure>
+</div>
+<p>Dla osób, które nie mają dostępu do Internetu, krótkie streszczenie. Eksperyment jest następujący. Oglądający film zostali poproszeni o zliczenie liczby podań piłki, w którą grała grupa osób na filmie. Koncentrując całą uwagę na śledzeniu piłki, większość obserwujących film nie dostrzega osoby w przebraniu goryla, która przechodzi przez środek pokoju, bijąc się na środku w piersi. Wiedząc, czego możemy się spodziewać, dostrzeżemy tego goryla. Prawdopodobnie również będziemy mieć problem z uwierzeniem, że można go było nie dostrzec. Goryl jest wielki i bardzo wyróżnia się na tle grających. W tym przypadku warto znaleźć kogoś, kto o selektywnej uwadze nie słyszał i przeprowadzić na nim eksperyment z gorylem.</p>
+<p>W Internecie znaleźć można więcej przykładów eksperymentów ilustrujących <em>,,wybiórczą uwagę’’</em> lub <em>,,wybiórczą ślepotę’’</em>. Wszystkie one pokazują, że animacja nie nadaje się do przekazywania złożonych informacji. Jeżeli koniecznie chcemy zbudować animowany wykres, to musimy się zatroszczyć o to, by obserwator wiedział, na jaki element ma patrzeć.</p>
+</section>
+<section id="jak-żyć-z-percepcją-kompozycji-wykresu" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="jak-żyć-z-percepcją-kompozycji-wykresu"><span class="header-section-number">4.6</span> Jak żyć z percepcją kompozycji wykresu?</h2>
+<p>Przedstawione przykłady pokazują, jak ważne jest, by wzrok czytelnika wykresu odwiedził wszystkie ważne miejsca oraz by były one czytelne. O jakie miejsca może chodzić? Okazuje się, że krytyczne znaczenie dla umiejętności odczytania wykresu pełnią takie elementy jak tytuł, podtytuł, opisy osi i legenda.</p>
+<p>Jeżeli w raporcie mamy więcej wykresów, to zadbajmy o ich spójność i o czytelność powyższych elementów. Zdawkowe opisy osi to Twój wróg. Ty pewnie wiesz, co jest na osiach. Ale czy czytelnik będzie to wiedział?</p>
+<p>Tytuł ma kluczowe znaczenie, kotwiczy naszą uwagę i mówi, czego na wykresie szukać. Jeżeli kolor, kształt lub wielkość elementów wykresu mają znaczenie, to musisz je opisać w legendzie. Inaczej może być bardzo trudno je odgadnąć.</p>
+</section>
+<section id="zadania" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="zadania"><span class="header-section-number">4.7</span> Zadania</h2>
+<p>Znajdź artykuł, książkę lub portal informacyjny, w którym przekazywane są informacje oparte na danych. Możesz np. skorzystać z portalu <a href="https://biqdata.wyborcza.pl/biqdata/0,0.html">BiQdata.pl</a>, <a href="https://informationisbeautiful.net/beautifulnews/">BeautifulNews</a> lub <a href="https://www.nytimes.com/spotlight/graphics">The New York Times</a>. Na tej podstawie wykonaj poniższe zadania.</p>
+<ol type="1">
+<li>Kolor. Jeżeli na wykresie są różne kolory, to czy pełnią one jakąś funkcję informacyjną? Czy bez kolorów wykres by coś stracił? Czy masz pomysł, jak inaczej dobrać kolory na tym wykresie?</li>
+<li>Geometria. Jakie kształty kodują informacje na tym wykresie? Czy długość, położenie, wielkość lub kąt? Czy robią to dobrze = czytelnie? Jak wyglądałby ten wykres, gdyby te same dane przedstawić za pomocą innej geometrii?</li>
+<li>Kompozycja. Co sądzisz o tytule, opisach osi czy opisie legendy? Czy są zwięzłe i czytelne? Czy pomagają zrozumieć, co jest na wykresie? Czy inaczej sformułowałbyś te opisy?</li>
+</ol>
+<p>Jeżeli chciałbyś dowiedzieć się więcej o klasycznych wykresach do prezentacji różnego rodzaju danych i relacji, to mogą zainteresować Cię eseje <em>Percepcja obrazu</em> i <em>Percepcja kolorów</em> z książki <em>Odkrywać! Ujawniać! Objaśniać!</em>.</p>
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

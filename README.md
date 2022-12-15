@@ -1,4 +1,4 @@
-# Wykresy od kuchni
+# [Wykresy od kuchni](https://betaandbit.github.io/Wykresy/)
 
 ![ilustracje/cover.png](ilustracje/cover.png)
 
@@ -7,7 +7,7 @@ Jak tworzyć dobre wykresy? Dobre, czyli takie, które z przyjemnością się og
 
 Wymaga to pewnego treningu i znajomości kilku zasad, ale jest to umiejętność, której może się nauczyć praktycznie każdy. Nie jest to czcze gadanie, mam na to dowód! Od 2013 roku prowadzę zajęcia z wizualizacji danych na Uniwersytecie Warszawskim i Politechnice Warszawskiej. W tym czasie miałem przyjemność pracować z setkami studentów kierunków matematyczno-informatycznych, z których większość, gdy tylko poznała podstawowe reguły komunikacji przez wykresy, bardzo szybko była w stanie tworzyć wspaniałe, czytelne, często wyjątkowe wizualizacje. 
 
-Na bazie doświadczeń z prowadzenia tych zajęć powstały *Wykresy od kuchni*. To zbiór krótkich wykładów omawiających różne wątki przydatne w lepszym zrozumieniu tego, jak działa komunikacja z użyciem wykresów statystycznych. Na kolejnych stronach pojawi się wiele analogii do przyrządzania posiłków, ponieważ zarówno w kuchni, jak i w przygotowaniu wykresów statystycznych potrzebna jest praktyka, znajomość pewnych fundamentalnych prawideł, garść sprawdzonych przepisów i dużo zapału do eksperymentowania. Będąc tak uzbrojonym, każdy adept sztuki kulinarnej jest skazany na sukces.
+Na bazie doświadczeń z prowadzenia tych zajęć powstały [*Wykresy od kuchni*](https://betaandbit.github.io/Wykresy/). To zbiór krótkich wykładów omawiających różne wątki przydatne w lepszym zrozumieniu tego, jak działa komunikacja z użyciem wykresów statystycznych. Na kolejnych stronach pojawi się wiele analogii do przyrządzania posiłków, ponieważ zarówno w kuchni, jak i w przygotowaniu wykresów statystycznych potrzebna jest praktyka, znajomość pewnych fundamentalnych prawideł, garść sprawdzonych przepisów i dużo zapału do eksperymentowania. Będąc tak uzbrojonym, każdy adept sztuki kulinarnej jest skazany na sukces.
 
 
 ## [Fabryka smaku](https://betaandbit.github.io/Wykresy/fabryka.html)

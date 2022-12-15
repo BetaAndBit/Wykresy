@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -61,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -130,12 +150,22 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatura</a>
   </div>
 </li>
     </ul>
     </div>
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Spis treści</h2>
+   
+  <ul>
+  <li><a href="#zmutowane-słupki" id="toc-zmutowane-słupki" class="nav-link active" data-scroll-target="#zmutowane-słupki"><span class="toc-section-number">5.1</span>  Zmutowane słupki</a></li>
+  <li><a href="#zmutowane-koła" id="toc-zmutowane-koła" class="nav-link" data-scroll-target="#zmutowane-koła"><span class="toc-section-number">5.2</span>  Zmutowane koła</a></li>
+  <li><a href="#zmutowane-osie" id="toc-zmutowane-osie" class="nav-link" data-scroll-target="#zmutowane-osie"><span class="toc-section-number">5.3</span>  Zmutowane osie</a></li>
+  <li><a href="#zmutowane-kolory" id="toc-zmutowane-kolory" class="nav-link" data-scroll-target="#zmutowane-kolory"><span class="toc-section-number">5.4</span>  Zmutowane kolory</a></li>
+  <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania"><span class="toc-section-number">5.5</span>  Zadania</a></li>
+  </ul>
+</nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -161,10 +191,134 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><img src="grafiki/okladka_mutant.png" class="img-fluid"></p>
-<p>W tym rozdziale porozmawiamy o standardach wykorzystywanych przy tworzeniu wykresów statystycznych. Dlaczego standardy są tak ważne? Wyobraźmy sobie, że przygotowujemy serię raportów, w których znajdzie się kilkadziesiąt lub kilkaset wykresów. Jeżeli każdy wykres będzie rządził się innymi prawami, to czytelnik za każdym razem będzie musiał zgadywać, jak dany wykres czytać. Znacznie szybciej pojawi się zmęczenie wywołane koniecznością odcyfrowywania zapisu dla i tak bardzo złożonych zależności. Zwiększy się ryzyko złego odczytania danych i czas potrzebny na zrozumienie całości. Profesjonaliści nie mogą sobie na takie błędy pozwolić.</p>
-<div class="page-columns page-full"><p>Podczas pracy w OECD obserwowałem, jak nad raportem z badania PISA  pracuje liczny, kilkunastoosobowy zespół analityków. Wyniki prac tego zespołu trafiły do tysięcy odbiorców, począwszy od specjalistów od badań edukacyjnych, przez dziennikarzy, po rodziców zainteresowanych zróżnicowaniem umiejętności nastolatków w ponad 65 krajach uczestniczących w badaniach PISA. Na bazie tych wyników podejmowane są często istotne decyzje dotyczące systemu edukacji. Aby te wyniki były czytelne dla szerokiego grona odbiorców, niezbędna jest standaryzacja wykresów.</p><div class="no-row-height column-margin column-container"><span class="">OECD: Organizacja Współpracy Gospodarczej i Rozwoju, organizacja międzynarodowa o skupiająca 38 wysoko rozwiniętych i demokratycznych państw.</span><span class="">PISA: Programme for International Student Assessment, międzynarodowe badanie, którego celem jest uzyskanie porównywalnych danych o umiejętnościach uczniów, którzy ukończyli 15. rok życia w celu poprawy jakości nauczania i organizacji systemów edukacyjnych.</span></div></div>
+<p>W tym rozdziale przedstawimy pseudowykresy. Twory, które wyglądają jak wykres, ale przeinaczają, zniekształcają lub utrudniają odczytanie poprawnych zależności obecnych w danych. Skąd się biorą takie potworki? Czasem jest to efekt braku zrozumienia danych, które się prezentuje; czasem braku umiejętności właściwego zaprezentowania danych, nawet jeżeli się je rozumie; a czasem celowego działania, by pokazać coś w pozornie lepszym świetle. Lista złych wykresów jest z pewnością bardzo długa, ale ten rozdział ogranicza się do przedstawienia reprezentantów czterech klas problemów: błędów na osiach, błędnego użycia wykresów kołowych, błędnej kolejności elementów wykresu i błędnego użycia kolorów.</p>
+<p><em>Primum non nocere</em>, czyli z łaciny ,,po pierwsze nie szkodzić’’, to jedna z naczelnych zasad etycznych w medycynie. Jej autorstwo przypisywane jest Hipokratesowi. Reguła ta jest już stosowana ponad dwa tysiące lat w sytuacjach, gdy w grę wchodzi ludzkie życie. Ta uniwersalna zasada może być też przydatna przy tworzeniu wykresów statystycznych. Szukajmy nowych środków przekazywania treści, ale po pierwsze, nie szkodźmy i jej nie zniekształcajmy. Pamiętaj o niej, drogi Czytelniku, i w próbach wizualizacji danych staraj się nie tworzyć mutantów zatruwających umysły toksyczną dezinformacją.</p>
+<p>Pisaliśmy wcześniej o zmutowanych wykresach, ale w literaturze funkcjonuje określenie ,,śmieciowy wykres’’ (ang. <em>junk chart</em>), które ukuł Edward Tufte w swojej książce <em>The Visual Display of Quantitative Information</em> <span class="citation" data-cites="Tufte2001">(<a href="references.html#ref-Tufte2001" role="doc-biblioref">Tufte 2001</a>)</span>. W ten sposób określił wykresy zniekształcające dane, ukrywające cenne informacje, wykresy sugerujące coś innego, niż pokazują dane. Niestety dookoła nas takich wykresów jest bardzo dużo. Przez ostatnie 10 lat, działając w fundacji SmarterPoland, zbierałem co roku najgorsze egzemplarze, po to by pod koniec każdego roku robić plebiscyt na najgorszy wykres roku. Przez te 10 lat uzbierała się spora kolekcja. Poniżej przedstawiam najbardziej toksyczne pozycje z tego plebiscytu.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Tufte2001" class="csl-entry" role="doc-biblioentry">
+Tufte, Edward. 2001. <em>The Visual Display of Quantitative Information</em>. Cheshire, Connecticut: Graphics Press.
+</div></div><p>Za chwilę odwiedzimy najciemniejsze kąty piwnicy z nieudanymi eksperymentami wizualizacji danych. Pokażemy wykresy śmieciowe, urągające dobremu smakowi czy logice. To nie jest rozdział dla osób o słabych nerwach. Dalszą lekturę tego rozdziału prowadzisz na własną odpowiedzialność.</p>
+<section id="zmutowane-słupki" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="zmutowane-słupki"><span class="header-section-number">5.1</span> Zmutowane słupki</h2>
+<p>Wykresy słupkowe są bardzo popularnym i czytelnym sposobem przekazywania informacji. Jest tak pod warunkiem, że przestrzegamy jednej reguły: słupki muszą zaczynać się w zerze. Patrząc na słupki, nasze oko domyślnie porównuje proporcje ich długości, po prostu tak interpretujemy tego rodzaju wykresy. Aby to miało sens, słupki muszą zaczynać się w zerze.</p>
+<p>W artykule <em>Drożejąca energia podnosi koszty utrzymania mieszkań</em>, autor bardzo się starał przekonać czytelnika, że ceny energii rosną w przerażającym tempie. Patrząc na poniższy wykres, można odnieść wrażenie, że koszt użytkowania nieruchomości szybko rośnie, co jest zgodne z treścią artykułu. Nie jest jednak zgodne z liczbami przedstawionymi na wykresie. W skali dziewięciu miesięcy wzrost o 3,4% był porównywalny z inflacją, ale wykres sugeruje znacznie poważniejszy wzrost cen, skoro długość słupka, przedstawiająca koszty, zwiększyła się przeszło dwukrotnie.</p>
+<div id="fig-Drozejaca" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.1: Wykres przedstawiający średnie osobowe koszty użytkowania nieruchomości w różnych miesiącach roku 2011. Więcej o tym wykresie przeczytać można w artykule <a href="http://bit.ly/1bYBmns"><em>Jeden zły rysunek jest wart 1000 słów … korekty</em></a>, SmarterPoland.pl, . Źródło: artykuł <em>Drożejąca energia podnosi koszty utrzymania mieszkań</em> z serwisu <a href="biznes.pl">biznes.pl</a>.</figcaption><p></p>
+</figure>
+</div>
+<p>W roku 2021 jednym z liderów plebiscytu na najgorszy wykres roku był wykres z TVP 1 <em>Wydatki na ochronę zdrowia jako %PKB</em> przedstawiony na rysunku <a href="#fig-tvp1zdrowie">Figure&nbsp;<span>5.3</span></a>. Słupki rozpoczynające się od wartości 4% wizualnie zwiększają wzrost wydatków na zdrowie w ostatnich latach. Przyznacie, to 7% wygląda majestatycznie na tle bladych 4,5%–5%. Pierwsze 7 słupków pokazuje okres 7 lat i sprawia wrażenie, że nic się przez lata nie zmieniało, ostatnie 5 słupków pokazuje wybrane lata na przestrzeni przyszłych 12 lat, co dodatkowo sugeruje dynamiczny wzrost. Co się stało z latami 2017-2019 i 2024-2026? Połowa z ostatnich słupków pokazuje prognozy, a nie poniesione wydatki.</p>
+<div id="fig-tvp1zdrowie" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.2: Wykres z 2021 roku z telewizji TVP 1 opisujący zmianę wydatków na służbę zdrowia</figcaption><p></p>
+</figure>
+</div>
+<p>Jak bardzo karykaturalny wykres możemy otrzymać, jeżeli słupki nie zaczną się w zerze? Niech ostrzeżeniem będzie poniższy wykres przedstawiający różnice pomiędzy mężczyznami a kobietami w odpowiedziach na pytanie, czy kiedykolwiek brali udział w programach lojalnościowych. Różnica pomiędzy tymi dwiema grupami wynosi dokładnie 0,3 punktu procentowego. Czy to jest faktycznie różnica, którą warto podkreślić w taki sposób?</p>
+<div id="fig-tvp1zdrowie" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.3: Wykres z raportu ABC Rynek i Opinia. Opublikowany na portalu egospodarka</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="zmutowane-koła" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="zmutowane-koła"><span class="header-section-number">5.2</span> Zmutowane koła</h2>
+<p>Wykresy kołowe mają swoich zdecydowanych przeciwników z uwagi na trudności w dokładnym odczytaniu przedstawionych danych. Jeżeli planujemy prezentację wykresów dla wyrafinowanego odbiorcy, to warto rozważyć inne opcje niż kolorowy tort. Jedyna sytuacja, w której wykres kołowy się jakoś obroni, to przedstawienie części składowych całości. Jest to praktycznie jedyne dozwolone użycie, które nie spowoduje niebezpiecznych konsekwencji. Zapomnieli o tym autorzy poniższych wykresów.</p>
+<div id="fig-plebiscyt_2017" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_04.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.4: Wykres ze strony internetowej miasta Wrocław z roku 2017. Pola wycinków koła są proporcjonalne do powierzchni przedstawionych miast</figcaption><p></p>
+</figure>
+</div>
+<p>Pierwszy przykład pochodzi z oficjalnej strony miasta Wrocławia. Porównywana jest powierzchnia i ludność pięciu miast na tle Wrocławia. Jakiego wykresu należałoby użyć w tym celu? Z pewnością nie wykresu kołowego. Czy widać na tym wykresie, że Łódź ma nieznacznie większą powierzchnię niż Wrocław, a Gdańsk, podobnie jak Poznań, ma powierzchnię o ponad 10% mniejszą od Wrocławia?</p>
+<p>Niestety nie jest to jedyny przypadek stosowania wykresów kołowych do zatruwania umysłów. Na poniższym wykresie różne wycinki koła przedstawiają ceny metra bieżącego rury o różnych przekrojach. Nie dość, że suma tych cen się do niczego nie składa, to jeszcze użycie perspektywy wpływa na rozszerzanie wycinków na górze i dole oraz zwężanie wycinków w środku.</p>
+<div id="fig-plebiscyt_2019" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_05.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.5: Ceny metra bieżącego rury o różnych przekrojach przedstawiono jako fragment wycinka koła. Wykres pochodzi z portalu inzynierbudownictwa.pl</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="zmutowane-osie" class="level2 page-columns page-full" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="zmutowane-osie"><span class="header-section-number">5.3</span> Zmutowane osie</h2>
+<p>Niestety, przestępcy wizualni ,,gwałcą’’ osie wykresów na różne sposoby. Pomimo iż ta zbrodnia wciąż nie jest ścigana prawem, warto wiedzieć, na co zwracać uwagę, by uniknąć nieprzyjemnej sytuacji.</p>
+<div class="column-screen-inset-right">
+<div id="fig-plebiscyt_2018" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_06.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.6: Zachorowania na Odrę w Polsce. Lewy wykres pochodzi ze strony tvn24.pl. Prawy wykres przedstawia kompletne dane z lat 2005-2017</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Na powyższym wykresie, który pochodzi ze stron jednej z dużych stacji informacyjnych w Polsce, przedstawiono liczbę przypadków zachorowania na odrę w Polsce. Wniosek nasuwa się sam, zachorowań jest coraz więcej. Aledlaczego pokazywane są tylko zachorowania w latach parzystych? Gdy przedstawi się dane kompletne z okresu 13 lat (patrz prawy panel), sytuacja wygląda inaczej.</p>
+<p>Jedni pomijają niewygodne lata, inni dodają sobie coś i tu, i tam. Są to równie ohydne zbrodnie przeciwko informacji. Poniżej prezentujemy przykład wykresu z raportu , który przedstawia wydatki deklarowane na B+R (badania i rozwój).</p>
+<div id="fig-pomylkiTitle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_07.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.7: Deklarowane wydatki na badania i rozwój. Źródło: raport <em>Nauka w Polsce 2013</em> opracowany przez Ministerstwo Nauki i Szkolnictwa Wyższego.</figcaption><p></p>
+</figure>
+</div>
+<p>Wykres ten pokazuje znaczne wzrosty deklarowanych wydatków, co w raporcie buduje tło dla rosnącej innowacyjności w przedsiębiorstwach. Niestety, jeżeli przyjrzeć się bliżej, to okaże się, że ostatni słupek przedstawia wydatki zagregowane z czterech lat (a dokładniej dotyczy planów na przyszłe cztery lata). Jeżeli podzieli się planowane wydatki przez cztery lata, to otrzymamy kwotę 1215 mln złotych, a to spadek o około 5% w stosunku do roku 2012. Ta ,,niewinna’’ agregacja na osi poziomej znacząco zmieniła postrzeganie prezentowanych danych.</p>
+<div id="fig-twitterMEIN" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_08.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.8: <em>Konsekwentnie wdrażamy plan podwyżek pensji nauczycieli</em> – to tytuł twitta z profilu Ministerstwa Edukacji i Nauki z 2019 roku <a href="https://twitter.com/MEIN_GOV_PL/status/1109050109785001985">https://twitter.com/MEIN_GOV_PL/status/1109050109785001985</a></figcaption><p></p>
+</figure>
+</div>
+<p>Kilka lat później Ministerstwo Edukacji Narodowej, już za czasów innego rządu, na Twitterze umieściło wykres przedstawiony na rysunku <a href="#fig-twitterMEIN">Figure&nbsp;<span>5.8</span></a>. Wymowa jest dosyć oczywista, będzie coraz więcej pieniędzy na podwyżki dla nauczycieli. Co rok więcej, a już pod koniec to tak dużo, że się ledwie mieści na wykresie.</p>
+<p>Tylko że ostatni słupek to suma lat 2017-2020 (równie dobrze mogłaby to być suma 2014-2020). Gdy się od tego 6,3 mld zł odejmie liczby przedstawione w poprzednich latach, to się okaże, że w roku 2020 na podwyżkę przeznaczone będzie 1,4 mld zł, a więc ponad dwa razy mniej niż w roku 2019. Liczby niby są, ale gdyby pokazano ten spadek, to trend już nie byłby taki konsekwentny.</p>
+<p>Poniższy wykres z dużego portalu informacyjnego przedstawia wysokość emerytury. Problem z tym wykresem polega na wyborze przedziałów prezentowanych na osi poziomej. Odpowiadają one bardzo różnym zakresom, czasem 100 zł, czasem 200 zł, a czasem 500 zł. Przez to wysokości słupków nie są ze sobą porównywalne. Ktoś mógłby go nieopatrznie odczytać tak, że najwięcej osób dostaje najwyższą emeryturę, powyżej 3,5 tys. zł. Można jednak dobierać inne przedziały na osi poziomej, by otrzymać inną historię.</p>
+<div id="fig-plebiscyt_2016" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_09.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.9: Wykres z roku 2016 z portalu wyborcza.biz prezentujący rozkład wysokości emerytury</figcaption><p></p>
+</figure>
+</div>
+<p>Wykresy często są wykorzystywane do pokazania zmian w czasie. Należy jednak pamiętać, że czas zawsze powinien biec w prawą stronę, inaczej można zaprowadzić czytelnika na manowce.</p>
+<p>Poniższy wykres z 2015 roku przedstawia wyniki sondażu preferencji przed wyborami prezydenckimi. Czy wyniki sondaży dla Bronisława Komorowskiego są lepsze niż w poprzednim miesiącu, czy gorsze? Przykład ten w jaskrawy sposób pokazuje, jak ważną rolę odgrywa kolejność słupków na wykresie. Jeżeli czytamy ten wykres, nie zagłębiając się w legendę, można odnieść wrażenie, że poparcie dla Bronisława Komorowskiego rośnie. Jednak gdy przyjrzeć się legendzie, okazuje się, że prawy, niebieski słupek to poparcie w styczniu, a lewy – w lutym.</p>
+<div id="fig-wykres20163" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_10.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.10: Wykres przedstawiający zmiany w poparciu preferencji politycznych. Dane są zniekształcone przez kilka elementów: dodana pseudoperspektywa i udawany trzeci wymiar, kierunek w jakim skierowane są słupki, wysokość słupka dla Janusza Korwina-Mikke, która nie odpowiada przedstawionej liczbie. Źródło: TVP Info.</figcaption><p></p>
+</figure>
+</div>
+<p>Poniższy wykres pochodzi z roku 2020 z głównych wiadomości prezentowanych na kanale TVP 1. Prezentuje zmianę bezrobocia, ale i tutaj czas zamiast w prawo biegnie w lewą stronę. Mniej uważny odbiorca może odnieść wrażenie, że bezrobocie spadło, choć w rzeczywistości wzrosło o 0,9 punktu procentowego.</p>
+<div id="fig-plebiscyt_2020" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_11.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.11: Wykres z roku 2020 prezentujący stopę bezrobocia. Wykres został przedstawiony w TVP 1. Bezrobocie wzrosło w ujęciu rok do roku, jednak sposób prezentacji może sugerować, że spadło</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="zmutowane-kolory" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="zmutowane-kolory"><span class="header-section-number">5.4</span> Zmutowane kolory</h2>
+<p>Kolory to bardzo potężna przyprawa na wykresach. Ważne jest jednak, by ją rozsądnie wykorzystywać. Reguła, której trzeba się trzymać, to zaznaczanie podobnymi kolorami podobnych rzeczy, a różnymi kolorami różnych rzeczy.</p>
+<div id="fig-kolomutant" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/mutant_12.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;5.12: Wykres z portalu Rzeczpospolita z roku 2021 z odpowiedziami na pytanie, czy zwężanie ulic w Warszawie to dobry pomysł</figcaption><p></p>
+</figure>
+</div>
+<p>Wykres na rysunku <span class="math inline">\(\ref{fig:kolomutant}\)</span> pochodzi z portalu Rzeczpospolita i może sugerować, że mniej niż połowa (49%) pytanych uważa, że zwężanie ulic w Warszawie to dobry pomysł. Być może pierwsze wrażenie byłoby inne, gdyby obie części kodujące liczbę osób wspierających ten pomysł zaznaczyć podobnym kolorem (byłoby 17% + 49%), a jedyną odpowiedź przeciwną oznaczyć kontrastującym kolorem.</p>
+<p>Surprise, surprise – ponad 4 razy więcej osób uważa, że warto zwęzić ulice niż że to dyskryminacja kierowców. Ale ten wykres tej proporcji nie uchwycił najlepiej. Winne są tym razem źle dobrane kolory.</p>
+</section>
+<section id="zadania" class="level2 page-columns page-full" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="zadania"><span class="header-section-number">5.5</span> Zadania</h2>
+<p>Wpisz w wyszukiwarce internetowej słowo ,,raport’’ i otwórz kilka pierwszych linków. Zazwyczaj nowsze dokumenty są wyżej w wynikach, więc zapewne znajdzie się jakiś nowy rządowy raport lub coś z NBP lub innego źródła. Czas się przyjrzeć bliżej zawartości.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><img src="grafiki/mutant_13.png" class="img-fluid"></p>
+</div></div><ol type="1">
+<li>Poszukaj w znalezionym raporcie wykresu słupkowego. Czy słupki zaczynają się od zera? Czy ich długości ułatwiają szybsze zrozumienie kluczowych informacji na wykresie?</li>
+<li>Poszukaj w znalezionym raporcie wykresu kołowego. Czy wycinki koła odpowiadają częściom całości? Czy patrząc na same wycinki wykresu kołowego, łatwo jest dostrzec, jaką historię ten wykres przedstawia?</li>
+<li>Spójrz na wykres na marginesie, przedstawia on średni wzrost kobiet w różnych krajach. Czy dane przedstawione są poprawnie? Jaki jest z nimi problem?</li>
+</ol>
+<p>Jeżeli chciałbyś dowiedzieć się więcej o błędnych wykresach zniekształcających rzeczywistość, to może zainteresować Cię esej <em>Info-pomyłka</em> z książki <em>Odkrywać! Ujawniać! Objaśniać!</em></p>
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

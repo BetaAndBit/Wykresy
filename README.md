@@ -69,7 +69,52 @@ Czytelniku, mam nadzieję, że kolejne rozdziały rozsmakują Cię w wizualnej e
 
 <br>
 
-<br>
+## Jak odtworzyć wykresy z tej ksiązki?
+
+```
+library("ggplot2")
+library("ggthemes")
+library("BetaBit")
+
+# Przykładowe dane
+head(food)
+
+# Histogram na wszystkich grupach
+ggplot(data = food, aes(x = Energia)) +
+	geom_histogram(color = "white") +
+	facet_wrap(~Grupa) +
+	labs(title = "Wartość energetyczna produktów", subtitle = "na 100 g",
+		x = "Wartość energetyczna", y = "Liczba") +
+	theme_economist()
+
+# Histogram na wybranych grupach
+ggplot(data = food_mini, aes(x = Energia)) +
+	geom_histogram(color = "white") +
+	facet_wrap(~Grupa) +
+	labs(title = "Wartość energetyczna produktów", subtitle = "na 100 g",
+		x = "Wartość energetyczna", y = "Liczba") +
+	theme_economist()
+
+# Wykres kropkowy
+ggplot(data = food, aes(x = Białko, y = Tłuszcze,
+	color = Grupa, size = Energia)) +
+	geom_point() +
+	scale_color_brewer(type = "qual", palette = "Dark2") +
+	labs(title = "Udział białka i tłuszczów", subtitle = "na 100 g",
+		y = "Tłuszcze [g]", x = "Białko [g]") +
+	theme_gdocs()
+
+# Wykres pudełkowy
+ggplot(data = food, aes(x = Grupa, y = Energia)) +
+	geom_rug(sides = "l") +
+	geom_violin(scale = "width", aes(fill = Grupa)) +
+	geom_text(data = food_max, aes(label =  Nazwa),
+		hjust = 0, vjust = 0, color = "blue4") +
+	geom_boxplot(width = 0.2, coef = 100) +
+	coord_flip() +
+	labs(title = "Rozkład wartości energetycznej", subtitle = "na 100 g") +
+	theme_gdocs() + theme(legend.position = "none")
+```
 
 <br>
 
@@ -77,6 +122,9 @@ Czytelniku, mam nadzieję, że kolejne rozdziały rozsmakują Cię w wizualnej e
 
 <br>
 
+<br>
+
+## Książka powstała w ramach projektu
 
 <img src="ilustracje/logotypy.jpg">
 

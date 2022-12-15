@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -130,12 +149,27 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatura</a>
   </div>
 </li>
     </ul>
     </div>
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Spis treści</h2>
+   
+  <ul>
+  <li><a href="#przygotowanie-do-pracy" id="toc-przygotowanie-do-pracy" class="nav-link active" data-scroll-target="#przygotowanie-do-pracy"><span class="toc-section-number">6.1</span>  Przygotowanie do pracy</a></li>
+  <li><a href="#histogram-krok-po-kroku" id="toc-histogram-krok-po-kroku" class="nav-link" data-scroll-target="#histogram-krok-po-kroku"><span class="toc-section-number">6.2</span>  Histogram krok po kroku</a></li>
+  <li><a href="#motywy-graficzneskórki" id="toc-motywy-graficzneskórki" class="nav-link" data-scroll-target="#motywy-graficzneskórki"><span class="toc-section-number">6.3</span>  Motywy graficzne/skórki</a></li>
+  <li><a href="#wykres-kropkowy-krok-po-kroku" id="toc-wykres-kropkowy-krok-po-kroku" class="nav-link" data-scroll-target="#wykres-kropkowy-krok-po-kroku"><span class="toc-section-number">6.4</span>  Wykres kropkowy krok po kroku</a></li>
+  <li><a href="#mapowania-zmiennych" id="toc-mapowania-zmiennych" class="nav-link" data-scroll-target="#mapowania-zmiennych"><span class="toc-section-number">6.5</span>  Mapowania zmiennych</a></li>
+  <li><a href="#skale-dla-mapowań" id="toc-skale-dla-mapowań" class="nav-link" data-scroll-target="#skale-dla-mapowań"><span class="toc-section-number">6.6</span>  Skale dla mapowań</a></li>
+  <li><a href="#wykres-pudełkowy-boxplot-krok-po-kroku" id="toc-wykres-pudełkowy-boxplot-krok-po-kroku" class="nav-link" data-scroll-target="#wykres-pudełkowy-boxplot-krok-po-kroku"><span class="toc-section-number">6.7</span>  Wykres pudełkowy (boxplot) krok po kroku</a></li>
+  <li><a href="#warstwy" id="toc-warstwy" class="nav-link" data-scroll-target="#warstwy"><span class="toc-section-number">6.8</span>  Warstwy</a></li>
+  <li><a href="#reprodukowalność" id="toc-reprodukowalność" class="nav-link" data-scroll-target="#reprodukowalność"><span class="toc-section-number">6.9</span>  Reprodukowalność</a></li>
+  <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania"><span class="toc-section-number">6.10</span>  Zadania</a></li>
+  </ul>
+</nav>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -161,10 +195,349 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><img src="grafiki/okladka_zakoduj.png" class="img-fluid"></p>
-<p>W tym rozdziale porozmawiamy o standardach wykorzystywanych przy tworzeniu wykresów statystycznych. Dlaczego standardy są tak ważne? Wyobraźmy sobie, że przygotowujemy serię raportów, w których znajdzie się kilkadziesiąt lub kilkaset wykresów. Jeżeli każdy wykres będzie rządził się innymi prawami, to czytelnik za każdym razem będzie musiał zgadywać, jak dany wykres czytać. Znacznie szybciej pojawi się zmęczenie wywołane koniecznością odcyfrowywania zapisu dla i tak bardzo złożonych zależności. Zwiększy się ryzyko złego odczytania danych i czas potrzebny na zrozumienie całości. Profesjonaliści nie mogą sobie na takie błędy pozwolić.</p>
-<div class="page-columns page-full"><p>Podczas pracy w OECD obserwowałem, jak nad raportem z badania PISA  pracuje liczny, kilkunastoosobowy zespół analityków. Wyniki prac tego zespołu trafiły do tysięcy odbiorców, począwszy od specjalistów od badań edukacyjnych, przez dziennikarzy, po rodziców zainteresowanych zróżnicowaniem umiejętności nastolatków w ponad 65 krajach uczestniczących w badaniach PISA. Na bazie tych wyników podejmowane są często istotne decyzje dotyczące systemu edukacji. Aby te wyniki były czytelne dla szerokiego grona odbiorców, niezbędna jest standaryzacja wykresów.</p><div class="no-row-height column-margin column-container"><span class="">OECD: Organizacja Współpracy Gospodarczej i Rozwoju, organizacja międzynarodowa o skupiająca 38 wysoko rozwiniętych i demokratycznych państw.</span><span class="">PISA: Programme for International Student Assessment, międzynarodowe badanie, którego celem jest uzyskanie porównywalnych danych o umiejętnościach uczniów, którzy ukończyli 15. rok życia w celu poprawy jakości nauczania i organizacji systemów edukacyjnych.</span></div></div>
+<p>W tym rozdziale przedstawimy podstawy pakietu <code>ggplot2</code>, który jest wyśmienitym narzędziem do tworzenia wykresów statystycznych. Dlaczego akurat ten pakiet? Przecież jest tak wiele innych prostych w użyciu narzędzi do tworzenia wykresów. Z grubsza możemy wyróżnić trzy rodzaje narzędzi do tworzenia wykresów wykorzystywanych przez osoby zawodowo prezentujące liczby.</p>
+<ul>
+<li>Zaawansowane programy graficzne typu <a href="https://www.gimp.org">GIMP</a> (bezpłatny program do grafiki rastrowej), Adobe Illustrator czy <a href="https://inkscape.org">Inkscape</a> (bezpłatny program do grafiki wektorowej) pozwalają na stworzenie dowolnego wykresu. Wyobraźnia twórcy nie jest praktycznie niczym ograniczona, w tych narzędziach można tworzyć dosłownie dzieła sztuki. Zazwyczaj jednak polerowanie szczegółów wymaga ręcznych modyfikacji, dużych umiejętności i jest trudno automatyzowalne.</li>
+<li>Programy typu <a href="https://www.openoffice.org">Calc</a> (darmowy arkusz kalkulacyjny), Excel czy <a href="http://www.tableau.com">Tableau</a> (narzędzie do budowy dashboardów) pozwalają na szybkie tworzenie wykresów za pomocą zbioru szablonów. Szybkość jest tutaj kluczowym atutem. Użytkownik może błyskawicznie ,,wyklikać’’ szablon, wskazać kolumny w danych, które parametryzują szablon. Klik, klik, klik i kolejny wykres gotowy.</li>
+<li>Języki programowania i specjalne pakiety graficzne, np. takie jak <code>ggplot2</code> dla <a href="https://cran.r-project.org/">programu R</a>. Korzystanie z takich narzędzi wymaga umiejętności programowania, więc próg wejścia jest wyższy niż w przypadku poprzednio prezentowanych podejść. Ma to jednak dwie zalety. Po pierwsze, gdy już opanujemy ten język, to taśmowe tworzenie wykresów można automatyzować. Jeżeli często tworzymy wykresy, to ta automatyzacja jest bezcenna. Po drugie, często te narzędzia są bardzo elastyczne i pozwalają na budowę zarówno prostych, jak i bardzo zaawansowanych wykresów.</li>
+</ul>
+<p>Warto oczywiście znać kilka narzędzi do tworzenia wykresów, by samemu poznawać ich wady i zalety. Ponieważ tworzę dużo wykresów i bardzo zależy mi na ich czytelności i estetyce, więc dla mnie pakiet <code>ggplot2</code> jest zazwyczaj narzędziem pierwszego wyboru.</p>
+<p>Nazwa <code>ggplot2</code> pochodzi od angielskiego określenia <em>grammar of graphics</em>, czyli gramatyka grafiki. Pierwsza wersja pakietu została opracowana przez Hadleya Wickhama. Gramatyka ta jest oparta na bogatszej gramatyce, którą stworzył Leland Wilkinson, opisanej w książce <em>The Grammar of Graphics</em> <span class="citation" data-cites="wilkinson1999">(<a href="references.html#ref-wilkinson1999" role="doc-biblioref">Wilkinson 1999</a>)</span>. Z kolei gramatyka przedstawiona przez Wilkinsona bazuje na wynikach Jacquesa Bertina i jego pracy . Korzysta też z rezultatów osiągniętych w bardzo wielu różnych dyscyplinach, od kartografii, przez badania percepcji i kognitywistykę, po lingwistykę, matematykę i statystykę.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-wilkinson1999" class="csl-entry" role="doc-biblioentry">
+Wilkinson, Leland. 1999. <em>The Grammar of Graphics</em>. New York: Springer.
+</div></div><p>Korzystanie z tej gramatyki wymaga pewnego treningu myślenia o danych i zależności. Ale ten trening się opłaca. Gdy już opanujemy tę gramatykę, to będziemy w stanie lepiej formułować opowieści o danych. Ten trening myślenia przyda się, nawet jeżeli w przyszłości będziemy korzystać z innego języka programowania lub innych bibliotek do tworzenia wykresów.</p>
+<section id="przygotowanie-do-pracy" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="przygotowanie-do-pracy"><span class="header-section-number">6.1</span> Przygotowanie do pracy</h2>
+<p>W tym rozdziale przedstawiamy instrukcje pozwalające na odtworzenie wykresów z rozdziału <em>Sprawdzone przepisy</em>. Aby przedstawione poniżej polecenia zadziałały, należy wcześniej zainstalować program <code>R</code>. Można go pobrać ze strony <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>. Następnie należy zainstalować pakiet statystyczny <code>ggplot2</code>, co można zrobić instrukcją <code>install.packages("ggplot2")</code> wpisaną do uruchomionego programu R.</p>
+<p>Po zainstalowaniu niezbędnych komponentów należy włączyć ten pakiet poleceniem <code>library()</code>. Po wykonaniu tych instrukcji mamy dostęp do funkcji graficznych opisanych poniżej.</p>
+<pre><code>library("ggplot2")</code></pre>
+<p>Teraz potrzebujemy danych, które możemy przedstawić na wykresach. Pakiet <code>ggplot2</code> (jak i wiele innych narzędzi) zakłada, że dane znajdują się w postaci tabelarycznej, w której w kolumnach ujęte są zmienne, a w wierszach obserwacje.</p>
+<p>Przykłady przedstawione w tym rozdziale oparte są na danych o produktach spożywczych, które poznaliśmy już w rozdziale <em>Sprawdzone przepisy</em>. Dane znajdują się w pakiecie <code>BetaBit</code> i po wczytaniu tego pakietu będą dostępne w zbiorze danych <code>food</code>. Dane są dostępne w języku angielskim, ale poniżej dla czytelności przedstawiliśmy nazwy zmiennych przetłumaczone na język polski.</p>
+<pre><code>library("BetaBit")
+head(food)</code></pre>
+<p>Po załadowaniu pakietu graficznego i danych jesteśmy gotowi do tworzenia wykresów. Poniżej przedstawiamy odpowiednie instrukcje krok po kroku.</p>
+<p>Tworzenie wykresu w pakiecie <code>ggplot2</code> jest bardzo interaktywnym i iteracyjnym procesem. W każdej iteracji coś do wykresu się dodaje lub usuwa i szuka się kolejnej rzeczy do poprawy. Pozwala to na stopniowe doskonalenie wykresu i buduje wartościowe nawyki systematycznej eksploracji danych, które tak się przydają przy pracy z danymi. Poniżej, obok kolejnych instrukcji, pokazujemy, jak wygląda wykres na danym etapie.</p>
+</section>
+<section id="histogram-krok-po-kroku" class="level2 page-columns page-full" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="histogram-krok-po-kroku"><span class="header-section-number">6.2</span> Histogram krok po kroku</h2>
+<p>Pierwszy wykres, jaki przygotujemy, to będzie histogram prezentujący rozkład wartości energetycznej dla produktów dostępnych w zbiorze danych.</p>
+<p><strong>Krok 1 – Dane i osie.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-histogram01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_hist_01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.1: Szkielet wykresu – dane i osie</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Każdy wykres zaczyna się od wskazania, na jakich danych jest oparty i które zmienne z tych danych będą przedstawione na osiach. W tym przypadku będziemy pracować na zbiorze danych <code>food</code> i interesuje nas rozkład wartości zmiennej <code>Energia</code>.</p>
+<p>Tworzymy szkielet wykresu następującym poleceniem:</p>
+<pre><code>ggplot(data = food, aes(x = Energia))</code></pre>
+<hr>
+<p><strong>Krok 2 – Histogram.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-histogram02" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_hist_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.2: Dodajemy geometrię histogram, prezentującą rozkład wartości energetycznej produktów żywnościowych</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Rodzaje graficznych prezentacji danych w pakiecie <code>ggplot2</code> nazywa się geometriami. Jest ich dostępnych bardzo wiele, odpowiadają im funkcje o nazwach zaczynających się od prefiksu <code>geom_</code>. W tym przypadku geometria <code>geom_histogram()</code> rysuje histogram dla określonej wcześniej zmiennej.</p>
+<p>Składnia pakietu <code>ggplot2</code> zakłada dodawanie kolejnych elementów do szkieletu wykresu. Stąd wykres z geometrią histogram konstruuje się następującym poleceniem:</p>
+<pre><code>ggplot(data = food, aes(x = Energia)) +
+  geom_histogram(color = "white")</code></pre>
+<hr>
+<p><strong>Krok 3 – Small multiples.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-histogram03" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_hist_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.3: <em>Small multiples</em> – seria wykresów dla poszczególnych grup</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Jednym ze sposobów porównania rozkładu zmiennej pomiędzy grupami jest użycie techniki <em>small multiples</em>. Dane są prezentowane na siatce wykresów o takich samych osiach, ale przedstawiających podzbiory obserwacji. Dzięki temu łatwiej dostrzec podobieństwa i różnice pomiędzy tymi grupami.</p>
+<p>W pakiecie <code>ggplot2</code> ten efekt można uzyskać, dodając czynnik <code>facet_wrap</code> i wskazując, która zmienna jest użyta do grupowania.</p>
+<p>Zaprezentowana na marginesie wizualizacja pozwala szybko dostrzec, że wartość energetyczna ryb jest średnio niższa niż produktów z grupy mięsa, słodycze lub orzechy.</p>
+<pre><code>ggplot(data = food, aes(x = Energia)) +
+  geom_histogram(color = "white") +
+  facet_wrap(~Grupa)</code></pre>
+<hr>
+<p><strong>Krok 4 – Motyw graficzny / Skórka.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-histogram04" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_hist_04.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.4: Skórka graficzna wzorowana na wykresach z gazety ,,The Economist’’</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Mamy już na wykresie główną treść, czas na polerowanie wizualne. Pakiet <code>ggplot2</code> jest bardzo konfigurowalny, można kontrolować praktycznie każdy detal wykresu. Służy do tego funkcja <code>theme()</code>.</p>
+<p>Ponieważ jednak świat nie kończy się na jednym wykresie, ale chcemy generować setki podobnych wizualnie wykresów, więc pracując nad detalami, często wybiera się jeden z predefiniowanych motywów graficznych nazywanych skórkami. Nazwy motywów zaczynają się od prefiksu <code>theme_</code>. Poniżej dodamy motyw graficzny przypominający wykresy z gazety ,,The Economist’’.</p>
+<pre><code>ggplot(data = food, aes(x = Energia)) +
+  geom_histogram(color = "white") +
+  facet_wrap(~Grupa) +
+  theme_economist()</code></pre>
+<hr>
+<p><strong>Krok 5 – Tytuł i opisy osi.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-histogram05" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_hist_05.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.5: Tytuł, podtytuł, opisy osi. Bez tych dodatków żaden wykres nie jest kompletny</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Każdy wykres obowiązkowo potrzebuje czytelnych opisów osi, tytułu i podtytułu. Bez nich ryzykujemy, że czytelnik nie zrozumie, co na wykresie jest pokazywane. Aby określić te elementy graficzne, możemy wykorzystać funkcję <code>labs()</code>.</p>
+<pre><code>ggplot(data = food, aes(x = Energia)) +
+  geom_histogram(color = "white") +
+  facet_wrap(~Grupa) +
+  labs(title = "Wartość energetyczna produktów", subtitle = "na 100 g", 
+    x = "Wartość energetyczna", y = "Liczba") +
+  theme_economist()</code></pre>
+</section>
+<section id="motywy-graficzneskórki" class="level2 page-columns page-full" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="motywy-graficzneskórki"><span class="header-section-number">6.3</span> Motywy graficzne/skórki</h2>
+<p>Na wykresie poza elementami przedstawiającymi dane występują też bardzo ważne elementy niezwiązane z danymi. Przykładowo: tło wykresu, krój tytułu wykresu czy wielkość etykiet na osiach. Rysunek <a href="#fig-themes9">Figure&nbsp;<span>6.6</span></a> przedstawia ten sam wykres z nałożeniem kilku różnych skórek. Jak widzimy, geometria danych się nie zmienia, ale wykres wygląda zupełnie inaczej.</p>
+<div class="column-screen-inset-right">
+<div id="fig-themes9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.6: Przykładowe skórki dostępne w pakiecie <code>ggplot2</code>. Nazwa skórki umieszczona jest w tytule wykresu</figcaption><p></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="wykres-kropkowy-krok-po-kroku" class="level2 page-columns page-full" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="wykres-kropkowy-krok-po-kroku"><span class="header-section-number">6.4</span> Wykres kropkowy krok po kroku</h2>
+<p>Przyjrzyjmy się dwóm składowym żywnościowym naszych produktów – ilości białka i tłuszczów.</p>
+<p><strong>Krok 1 – Dane i osie.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-food01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_kropki_01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.7: Szkielet wykresu – dane i osie</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Każdy wykres zaczyna się od danych. Ponownie używamy funkcji <code>ggplot()</code>, aby zbudować szkielet wykresu. Ponownie korzystamy z danych <code>food</code>. Na osi OX zaznaczymy ilość białka, a na osi OY ilość tłuszczów w 100 g produktu.</p>
+<pre><code>ggplot(data = food, aes(x = Białko, y = Tłuszcze)) </code></pre>
+<hr>
+<p><strong>Krok 2 – Wykres kropkowy.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-food02" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_kropki_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.8: Dodajemy geometrię prezentującą dane za pomocą kropek, idealną do szukania korelacji i zależności pomiędzy dwiema zmiennymi</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Przychodzi czas na wybranie geometrii. Aby narysować wykres kropkowy, wykorzystamy geometrię <code>geom_point()</code>. Współrzędne punktów są określone przez pierwsze dwie zmienne wskazane wcześniej funkcją <code>aes()</code>.</p>
+<p>Oczywiście sumaryczna zawartość białka i tłuszczów nie może być większa niż 100%. Wśród produktów widzimy takie, które mają bardzo mało jednego i drugiego składnika, i takie, które mają jednego z tych składników w granicach 15-35%. Wykres pozwala też zauważyć, że jest kilka produktów o wyjątkowo dużej zawartości białka lub tłuszczów.</p>
+<pre><code>ggplot(data = food, aes(x = Białko, y = Tłuszcze)) +
+    geom_point() </code></pre>
+<hr>
+<p><strong>Krok 3 – Mapowanie koloru, wielkości i innych atrybutów.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-food03" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_kropki_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.9: Kolor punktu reprezentuje zmienną Grupa, a wielkość punktu zmienną Energia</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Pakiet <code>ggplot2</code> pozwala na tworzenie wykresów w sposób deklaratywny. Jeżeli chcemy, aby na wykresie kolor kodował jakąś zmienną, np. grupę produktów żywieniowych, to wystarczy takie mapowanie zaznaczyć w deklaracji mapowań. Nie musimy mówić, jak to mapowanie ma wyglądać, jakich i ilu kolorów użyć, o to zadba sam pakiet <code>ggplot2</code>. Jedyne, co musimy zrobić, to w bloku mapowań w funkcji <code>aes()</code> należy zaznaczyć, która zmienna określa który atrybut.</p>
+<p>W poniższym przykładzie żądamy, by zmienna Grupa była zaznaczona na wykresie przez kolor punktów, a zmienna Energia przez wielkość punktów. Zauważmy, że na wykresie automatycznie pojawi się legenda dla tych dwóch charakterystyk.</p>
+<pre><code>ggplot(data = food, aes(x = Białko, y = Tłuszcze,
+            color = Grupa, size = Energia)) +
+    geom_point() </code></pre>
+<hr>
+<p><strong>Krok 4 – Kontrola mapowania.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-food04" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_kropki_04.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.10: Kolory punktów są określane przez paletę Dark2 dla skal jakościowych</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Ale co zrobić, jeżeli nam się nie podoba zaproponowane mapowanie? Chcielibyśmy inny schemat kolorów lub inny zakres wielkości punktów. Nad każdym mapowaniem mamy całkowitą kontrolę poprzez funkcje ustawiające skale wykresu. Takie funkcje mają nazwę rozpoczynającą się od prefiksu <code>scale_</code>, następnie jest nazwa atrybutu graficznego, a trzeci człon określa, w jaki sposób ten atrybut ma być skonstruowany.</p>
+<p>Przykładowo, jeżeli chcielibyśmy zmienić sposób określana skali kolorów tak, by użyć kolorów ColorBrewer, to możemy do tego celu użyć funkcji <code>scale_color_brewer()</code>. Wystarczy określić, jaką paletę kolorów chcemy wykorzystać na wykresie.</p>
+<pre><code>ggplot(data = food, aes(x = Białko, y = Tłuszcze,
+            color = Grupa, size = Energia)) +
+    geom_point() +
+    scale_color_brewer(type = "qual", palette = "Dark2") </code></pre>
+<hr>
+<p><strong>Krok 5 – Tytuł, opis osi i skórka.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-food05" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_kropki_05.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.11: Ostatnie szlify, zmieniamy skórkę, dodajemy tytuł, podtytuł i opisy osi</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Mamy główną treść – czas na detale graficzne, skórki wykresu, tytuły osi, główny tytuł oraz podtytuł. Poniżej używamy funkcji, które pojawiły się już przy okazji omawiania histogramu. Ważne jest jednak, by zawsze uzupełniać wykres o odpowiednie adnotacje, bez tego może nie być on czytelny dla odbiorcy.</p>
+<pre><code>ggplot(data = food, aes(x = Białko, y = Tłuszcze,
+            color = Grupa, size = Energia)) +
+    geom_point() +
+    scale_color_brewer(type = "qual", palette = "Dark2") +
+    labs(title = "Udział białka i tłuszczów", subtitle = "na 100 g", 
+      y = "Tłuszcze [g]", x = "Białko [g]") + 
+    theme_gdocs() </code></pre>
+</section>
+<section id="mapowania-zmiennych" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="mapowania-zmiennych"><span class="header-section-number">6.5</span> Mapowania zmiennych</h2>
+<p>Kluczowa koncepcja stojąca za filozofią pakietu <code>ggplot2</code> to deklaratywne określenie, jakie zmienne powinny być przedstawione na wykresie oraz jaką rolę powinny pełnić. Te deklaracje pojawiają się wewnątrz funkcji <code>aes()</code> (ang. <em>aesthetics</em>).</p>
+<p>Po zadeklarowaniu, co zmienna powinna na wykresie robić, pakiet <code>ggplot2</code> zajmie się automatycznie przekształceniem wartości zmiennej na współrzędne punktów na wykresie. Poniższy wykres ilustruje koncepcję mapowania na przykładzie czterech zmiennych dla wykresu kropkowego.</p>
+<div id="fig-tabAtrybuty" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.12: Wykres kropkowy, który przedstawia dla każdego punktu cztery różne atrybuty punktu za pomocą współrzędnych w osi OX, OY, wielkości punktu i koloru</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="skale-dla-mapowań" class="level2 page-columns page-full" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="skale-dla-mapowań"><span class="header-section-number">6.6</span> Skale dla mapowań</h2>
+<p>Zazwyczaj skale są tworzone automatycznie, ale istnieją sytuacje, w których chcemy wyłączyć autopilota i wziąć w swoje ręce kontrolę sposobu, w jaki dane są przekształcane. Pakiet <code>ggplot2</code> umożliwia określenie kodowania każdego graficznego atrybutu. Skale są definiowane globalnie dla całego wykresu i są stosowane do wszystkich warstw jednolicie.</p>
+<p>Jedną z najczęściej zmienianych skal jest skala kolorów. Zmieniana jest nie dlatego, że domyślne kolory są złe, ale często dlatego, że chcemy zwiększyć czytelność dla osób z dysfunkcjami widzenia kolorów, lub mamy własne indywidualne preferencje w tym zakresie.</p>
+<div id="fig-skaleKolor" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_04.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.13: Definiując skale dla koloru w pakiecie <code>ggplot2</code>, musimy określić dwa elementy. Po pierwsze, ile różnych wartości mamy do zakodowania. Po drugie, z jakiego rodzaju zmienną pracujemy: czy jest to zmienna w skali uporządkowanej, w skali z elementem neutralnym, czy w skali jakościowej. Na rysunku przedstawione są kolory zaproponowane przez Cynthię Brewer do przedstawienia ośmiu kolorów dla zmiennych jakościowych (pierwsza kolumna) oraz ilościowych z elementem neutralnym lub bez (kolejne dwie kolumny). Paletę można wybrać przez nazwę (np. Dark2) lub przez numer (np. 7)</figcaption><p></p>
+</figure>
+</div>
+<p>Innym bardzo interesującym atrybutem oprócz koloru jest wielkość punktu. Pozwala ona kodować zmienne ciągłe – im większa wartość danej zmiennej, tym większa kropka.</p>
+<p>Dla zmiennych jakościowych ciekawą opcją do zakodowania ich wartości jest użycie kształtu. Domyślna skala kształtów obejmuje podstawowe figury geometryczne, puste i wypełnione trójkąty, kwadraty i koła. Alternatywą dla kształtów geometrycznych jest wykorzystanie kolejnych liter alfabetu. Interesującą dyskusję o wadach i zaletach różnych kształtów umieszczono w artykule <em>Points of view: Plotting symbols</em> <span class="citation" data-cites="krzywinskipoints2013">(<a href="references.html#ref-krzywinskipoints2013" role="doc-biblioref">Krzywinski and Wong 2013</a>)</span>. Polecamy też pozostałe artykuły z serii artykułów <em>Points of view</em>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-krzywinskipoints2013" class="csl-entry" role="doc-biblioentry">
+Krzywinski, Martin, and Bang Wong. 2013. <span>“Points of View: Plotting Symbols.”</span> <em>Nature Methods</em> 10 (6): 451–51. <a href="http://dx.doi.org/10.1038/nmeth.2490">http://dx.doi.org/10.1038/nmeth.2490</a>.
+</div></div></section>
+<section id="wykres-pudełkowy-boxplot-krok-po-kroku" class="level2 page-columns page-full" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="wykres-pudełkowy-boxplot-krok-po-kroku"><span class="header-section-number">6.7</span> Wykres pudełkowy (boxplot) krok po kroku</h2>
+<p>Zobaczmy, jak skonstruować wykres pudełkowy. A przy okazji zobaczymy też, jak taki wykres wzbogacić o kilka dodatkowych warstw przedstawiających uzupełniające się perspektywy.</p>
+<p><strong>Krok 1 – Dane i osie.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-boxplot01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_boxplot_01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.14: Szkielet wykresu – dane i osie</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Wzorem poprzednich wykresów także ten zaczynamy od określenia, jakie dane posłużą do przygotowania wykresu, tutaj <code>food</code>, oraz jakie zmienne powinny się znaleźć na osiach – tutaj chcemy pokazywać zawartość energetyczną produktów w podziale na grupy produktów żywieniowych, obie zmienne trafiają do funkcji <code>aes()</code>.</p>
+<pre><code>ggplot(data = food, aes(x = Grupa, y = Energia)) </code></pre>
+<hr>
+<p><strong>Krok 2 – Wykres pudełkowy.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-boxplot02" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_boxplot_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.15: Dodajemy geometrię z wykresem pudełkowym</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Czas wybrać geometrię. Dla wykresu pudełkowego jest to <code>geom_boxplot()</code>. Większość geometrii pozwala na określenie dodatkowych argumentów dla geometrii. Tutaj ustalamy szerokość wykresu pudełkowego, mniejszą niż domyślna (później się taka przyda), oraz oznaczamy, które obserwacje mają być traktowane jako odstające. Do tego służy parametr <code>coef</code>, ustawienie go na wartość 100 powoduje, że nie będą identyfikowane wartości odstające, a wąsy wykresów będą się rozpinały od minimalnej do maksymalnej wartości w danej grupie.</p>
+<pre><code>ggplot(data = food, aes(x = Grupa, y = Energia)) +
+  geom_boxplot(width = 0.2, coef = 100) </code></pre>
+<hr>
+<p><strong>Krok 3 – Obrót osi wykresu.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-boxplot03" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_boxplot_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.16: Obracamy osie wykresu dla zwiększenia czytelności</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Domyślnie wykresy pudełkowe rysowane są pionowo (podobnie jak histogram czy wykres słupkowy). Ale to rozwiązanie ma kilka wad. Jedną z nich jest to, że na osi wykresu mogą się nie zmieścić pełne nazwy prezentowanych wartości. Inną jest to, że wykres ma większą rozdzielczość w osi poziomej niż pionowej.</p>
+<p>Funkcje kontrolujące osie wykresu mają nazwy rozpoczynające się od prefiksu <code>coord_</code>. Przykładowo <code>coord_flip()</code> zamienia osie wykresu.</p>
+<pre><code>ggplot(data = food, aes(x = Grupa, y = Energia)) +
+  geom_boxplot(width = 0.2, coef = 100) +
+  coord_flip()</code></pre>
+<hr>
+<p><strong>Krok 4 – Więcej warstw z danymi.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-boxplot04" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_boxplot_04.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.17: Dodajemy więcej uzupełniających się warstw, w tym kreski na osi czy wykres skrzypcowy</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Na wykresie możemy mieć dowolną liczbę warstw z różnymi geometriami. Takie łączenie geometrii jest potężnym mechanizmem, pozwalającym na uzupełnianie różnych aspektów danych.</p>
+<p>Pisaliśmy wcześniej o tym, że wykresy pudełkowe nie pokazują dobrze wielomodalnych rozkładów, więc dodamy do tego wykresu drugą warstwę z wykresami skrzypcowymi (czyli <code>geom_violin()</code>). Dzięki temu będziemy mogli odczytać i kwartyle, i mody rozkładu. Dodatkowo dodamy na dolnej osi znaczniki określające, gdzie są poszczególne obserwacje, za pomocą geometrii <code>geom_rug()</code>.</p>
+<pre><code>ggplot(data = food, aes(x = Grupa, y = Energia)) +
+  geom_rug(sides = "l") +
+  geom_violin(scale = "width", fill = "grey") +
+  geom_boxplot(width = 0.2, coef = 100) +
+  coord_flip()</code></pre>
+<hr>
+<p><strong>Krok 5 – Warstwa z opisami.</strong></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-boxplot05" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_boxplot_05.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.18: Jeszcze jedna warstwa – z nazwami produktów o największej kaloryczności</figcaption><p></p>
+</figure>
+</div>
+</div></div><p>Wykres ma już trzy warstwy, ale wciąż jest miejsce na dodanie dodatkowej użytecznej informacji. Dodajmy więc nazwy produktów o najwyższej kaloryczności. Nazwy dodamy geometrią dla napisów, czyli <code>geom_text()</code>. Poniżej znajduje się przykład użycia tej geometrii.</p>
+<p>W każdej geometrii można określać lokalne dane argumentem <code>data=</code>. Domyślnie geometrie biorą dane wskazane w funkcji <code>ggplot</code>, ale można też określać osobno dane dla każdej warstwy.</p>
+<pre><code>ggplot(data = food, aes(x = Grupa, y = Energia)) +
+  geom_rug(sides = "l") +
+  geom_violin(scale = "width", fill = "grey") +
+  geom_text(data = food_max, aes(label =  Nazwa), 
+     hjust = 0, vjust = 0, color = "blue4") + 
+  geom_boxplot(width = 0.2, coef = 100) +
+  coord_flip()</code></pre>
+<hr>
+<p><strong>Krok 6 – Tytuł, opis osi i skórka.</strong></p>
+<p>Mamy główną treść, czas na określenie detali graficznych, skórki wykresu, tytułów osi i głównego tytułu oraz podtytułu. Poniżej używamy funkcji, które pojawiły się już przy okazji omawiania histogramu. Ważne jest jednak, by zawsze uzupełniać wykres o odpowiednie adnotacje, bez tego może nie być on czytelny dla odbiorcy.</p>
+<pre><code>ggplot(data = food, aes(x = Grupa, y = Energia)) +
+  geom_rug(sides = "l") +
+  geom_violin(scale = "width", aes(fill = Grupa)) +
+  geom_text(data = food_max, aes(label =  Nazwa), 
+     hjust = 0, vjust = 0, color = "blue4") + 
+  geom_boxplot(width = 0.2, coef = 100) +
+  coord_flip() + 
+  labs(title = "Rozkład wartości energetycznej", subtitle = "na 100 g") +
+  theme_gdocs() + theme(legend.position = "none")</code></pre>
+</section>
+<section id="warstwy" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="warstwy"><span class="header-section-number">6.8</span> Warstwy</h2>
+<p>Unikalną możliwością pakietu <code>ggplot2</code> jest składanie ze sobą na jednym wykresie różnych warstw prezentujących różne aspekty tych samych danych. Zazwyczaj warstwy te przedstawiają dane z różną szczegółowością. Każda warstwa składa się z jednej geometrii określonej funkcją <code>geom_</code>, ale geometrie możemy do siebie po prostu dodawać.</p>
+<div id="fig-warstwy2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="grafiki/zakoduj_boxplot_06.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.19: Wykres składający się z czterech warstw. Poszczególne składowe są przedstawione niżej</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="reprodukowalność" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="reprodukowalność"><span class="header-section-number">6.9</span> Reprodukowalność</h2>
+<p>Ważną zaletą pakietu <code>ggplot2</code> jest odtwarzalność procesu tworzenia wykresów. Wykresy są wynikiem sekwencji instrukcji w języku programowania. Jeżeli po 10 latach będziemy chcieli odtworzyć wykres z zadanej sekwencji, to nic prostszego, wystarczy dany fragment kodu przekopiować do konsoli programu R. Wykresy nie są ,,wyklikane’’ w jednym czy drugim narzędziu. Uzyskujemy zapis wykresu, który można w każdej chwili odtworzyć lub zmodyfikować.</p>
+<p>Odtwarzalność wyników, a więc także wykresów, jest fundamentem publikacji naukowych, ale też każdego porządnego raportu. Jeżeli w raporcie lub publikacji widzimy wykres z interesującymi zależnościami, czyż nie jest naturalne oczekiwać, że dany wykres można odtworzyć?</p>
+</section>
+<section id="zadania" class="level2 page-columns page-full" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="zadania"><span class="header-section-number">6.10</span> Zadania</h2>
+<p>Najlepszy sposób rozwijania umiejętności programowania w pakiecie <code>ggplot2</code> to zadawanie pytań do danych i później uczenie się, jak zrobić wykres, który na dane pytanie odpowie. Poniżej znajdziesz sugestie kilku pytań na rozgrzewkę.</p>
+<ol type="1">
+<li>Narysuj histogram ilości wody w różnych produktach. Zaznacz grupę produktów za pomocą koloru. Unormuj słupki dla kolejnych przedziałów, by łatwiej było zauważyć, jaki jest udział określonej grupy w produktach o danej zawartości wody.<br>
+</li>
+<li>Wybierz z danych słodycze i zaznacz je na wykresie kropkowym, pokazując zawartość cukrów oraz zawartość tłuszczów. Które produkty najbardziej odstają od centralnej chmury punktów? Zaznacz na wykresie nazwy kilku najbardziej odstających.</li>
+<li>Wykorzystaj wykres pudełkowy, aby porównać zawartość cukrów, oraz drugi, aby porównać zawartość tłuszczów pomiędzy różnymi grupami produktów.</li>
+</ol>
+<p>Jeżeli chciałbyś dowiedzieć się więcej o gramatyce wizualizacji danych, to może zainteresować cię esej <em>Gramatyka języka wizualizacji danych</em> z książki <em>Odkrywać! Ujawniać! Objaśniać!</em></p>
+<p>Osoby, które chciałyby głębiej poznać program i pakiet <code>ggplot2</code>, mogą znaleźć wiele szczegółowych informacji w książce <em>ggplot2: elegant graphics for data analysis</em> <span class="citation" data-cites="ggplot2">(<a href="references.html#ref-ggplot2" role="doc-biblioref">Wickham 2009</a>)</span>. W języku polskim więcej informacji o programie i bibliotece <code>ggplot2</code> znajduje się w książce <em>Przewodnik po pakiecie R</em> <span class="citation" data-cites="BiecekR2011">(<a href="references.html#ref-BiecekR2011" role="doc-biblioref">Biecek 2014</a>)</span>. Podobne zasady tworzenia wykresów dla języka Julia są zaimplementowane w pakiecie <code>Gadfly</code>, a dla języka Python w pakiecie <code>matplotlib</code>.</p>
 
 
+<div class="no-row-height column-margin column-container"><div id="ref-ggplot2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2009. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer New York. <a href="http://had.co.nz/ggplot2/book">http://had.co.nz/ggplot2/book</a>.
+</div><div id="ref-BiecekR2011" class="csl-entry" role="doc-biblioentry">
+Biecek, Przemysław. 2014. <em><span class="nocase">Przewodnik po pakiecie R</span>, Wydanie Trzecie</em>. Oficyna Wydawnicza Gewert i Skoczylas.
+</div></div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -308,7 +681,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Literatura</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

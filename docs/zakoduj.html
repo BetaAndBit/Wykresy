@@ -195,7 +195,7 @@ div.csl-indent {
 </header>
 
 <p><img src="grafiki/okladka_zakoduj.png" class="img-fluid"></p>
-<p>W tym rozdziale przedstawimy podstawy pakietu <code>ggplot2</code>, który jest wyśmienitym narzędziem do tworzenia wykresów statystycznych. Dlaczego akurat ten pakiet? Przecież jest tak wiele innych prostych w użyciu narzędzi do tworzenia wykresów. Z grubsza możemy wyróżnić trzy rodzaje narzędzi do tworzenia wykresów wykorzystywanych przez osoby zawodowo prezentujące liczby.</p>
+<p>W tym rozdziale przedstawimy podstawy pakietu <code>ggplot2</code>, który jest wyśmienitym narzędziem do tworzenia wykresów statystycznych. Dlaczego akurat ten pakiet? Przecież jest tak wiele innych prostych w użyciu narzędzi do tworzenia wykresów. Wśród tych wykorzystywanych przez osoby zawodowo prezentujące liczby, możemy wyróżnić trzy rodzaje:</p>
 <ul>
 <li>Zaawansowane programy graficzne typu <a href="https://www.gimp.org">GIMP</a> (bezpłatny program do grafiki rastrowej), Adobe Illustrator czy <a href="https://inkscape.org">Inkscape</a> (bezpłatny program do grafiki wektorowej) pozwalają na stworzenie dowolnego wykresu. Wyobraźnia twórcy nie jest praktycznie niczym ograniczona, w tych narzędziach można tworzyć dosłownie dzieła sztuki. Zazwyczaj jednak polerowanie szczegółów wymaga ręcznych modyfikacji, dużych umiejętności i jest trudno automatyzowalne.</li>
 <li>Programy typu <a href="https://www.openoffice.org">Calc</a> (darmowy arkusz kalkulacyjny), Excel czy <a href="http://www.tableau.com">Tableau</a> (narzędzie do budowy dashboardów) pozwalają na szybkie tworzenie wykresów za pomocą zbioru szablonów. Szybkość jest tutaj kluczowym atutem. Użytkownik może błyskawicznie ,,wyklikać’’ szablon, wskazać kolumny w danych, które parametryzują szablon. Klik, klik, klik i kolejny wykres gotowy.</li>
@@ -213,7 +213,7 @@ Wilkinson, Leland. 1999. <em>The Grammar of Graphics</em>. New York: Springer.
 <pre><code>library("ggplot2")
 library("ggthemes")</code></pre>
 <p>Teraz potrzebujemy danych, które możemy przedstawić na wykresach. Pakiet <code>ggplot2</code> (jak i wiele innych narzędzi) zakłada, że dane znajdują się w postaci tabelarycznej, w której w kolumnach ujęte są zmienne, a w wierszach obserwacje.</p>
-<p>Przykłady przedstawione w tym rozdziale oparte są na danych o produktach spożywczych, które poznaliśmy już w rozdziale <em>Sprawdzone przepisy</em>. Dane znajdują się w pakiecie <code>BetaBit</code> i po wczytaniu tego pakietu będą dostępne w zbiorze danych <code>food</code>. Dane są dostępne w języku angielskim, ale poniżej dla czytelności przedstawiliśmy nazwy zmiennych przetłumaczone na język polski.</p>
+<p>Przykłady przedstawione w tym rozdziale oparte są na danych o produktach spożywczych, które poznaliśmy już w rozdziale <em>Sprawdzone przepisy</em>. Dane znajdują się w pakiecie <code>BetaBit</code> i po zainstalowaniu oraz wczytaniu tego pakietu będą dostępne w zbiorze danych <code>food</code>. Dane są dostępne w języku angielskim, ale poniżej dla czytelności przedstawiliśmy nazwy zmiennych przetłumaczone na język polski.</p>
 <pre><code>library("BetaBit")
 head(food)</code></pre>
 <p>Po załadowaniu pakietu graficznego i danych jesteśmy gotowi do tworzenia wykresów. Poniżej przedstawiamy odpowiednie instrukcje krok po kroku.</p>
@@ -255,7 +255,7 @@ head(food)</code></pre>
 <div id="fig-histogram03" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="grafiki/zakoduj_hist_03.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.3: <em>Small multiples</em> – seria wykresów dla poszczególnych grup</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Rysunek&nbsp;6.3: <em>Small multiples</em> – seria wykresów dla poszczególnych grup. Dla czytelności wykresu ograniczyliśmy się do wybranych czterech z nich</figcaption><p></p>
 </figure>
 </div>
 </div></div><p>Jednym ze sposobów porównania rozkładu zmiennej pomiędzy grupami jest użycie techniki <em>small multiples</em>. Dane są prezentowane na siatce wykresów o takich samych osiach, ale przedstawiających podzbiory obserwacji. Dzięki temu łatwiej dostrzec podobieństwa i różnice pomiędzy tymi grupami.</p>
@@ -294,7 +294,8 @@ head(food)</code></pre>
 <pre><code>ggplot(data = food, aes(x = Energia)) +
   geom_histogram(color = "white") +
   facet_wrap(~Grupa) +
-  labs(title = "Wartość energetyczna produktów", subtitle = "na 100 g", 
+  labs(title = "Wartość energetyczna produktów", 
+    subtitle = "na 100 g produktu", 
     x = "Wartość energetyczna", y = "Liczba") +
   theme_economist()</code></pre>
 </section>
@@ -384,7 +385,7 @@ head(food)</code></pre>
             color = Grupa, size = Energia)) +
     geom_point() +
     scale_color_brewer(type = "qual", palette = "Dark2") +
-    labs(title = "Udział białka i tłuszczów", subtitle = "na 100 g", 
+    labs(title = "Udział białka i tłuszczów", subtitle = "na 100 g produktu", 
       y = "Tłuszcze [g]", x = "Białko [g]") + 
     theme_gdocs() </code></pre>
 </section>
@@ -492,6 +493,7 @@ Krzywinski, Martin, and Bang Wong. 2013. <span>“Points of View: Plotting Symbo
      hjust = 0, vjust = 0, color = "blue4") + 
   geom_boxplot(width = 0.2, coef = 100) +
   coord_flip()</code></pre>
+<p>Zbiór danych <code>food_max</code> należy wcześniej przygotować. Aby skrócic ten przykład umieściliśmy gotowy zbiór w pakiecie <code>BetaBit</code>.</p>
 <hr>
 <p><strong>Krok 6 – Tytuł, opis osi i skórka.</strong></p>
 <p>Mamy główną treść, czas na określenie detali graficznych, skórki wykresu, tytułów osi i głównego tytułu oraz podtytułu. Poniżej używamy funkcji, które pojawiły się już przy okazji omawiania histogramu. Ważne jest jednak, by zawsze uzupełniać wykres o odpowiednie adnotacje, bez tego może nie być on czytelny dla odbiorcy.</p>
@@ -507,7 +509,7 @@ Krzywinski, Martin, and Bang Wong. 2013. <span>“Points of View: Plotting Symbo
 </section>
 <section id="warstwy" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="warstwy"><span class="header-section-number">6.8</span> Warstwy</h2>
-<p>Unikalną możliwością pakietu <code>ggplot2</code> jest składanie ze sobą na jednym wykresie różnych warstw prezentujących różne aspekty tych samych danych. Zazwyczaj warstwy te przedstawiają dane z różną szczegółowością. Każda warstwa składa się z jednej geometrii określonej funkcją <code>geom_</code>, ale geometrie możemy do siebie po prostu dodawać.</p>
+<p>Jak zobaczyliśmy na przykładzie wykresu pudełkowego,unikalną możliwością pakietu <code>ggplot2</code> jest składanie ze sobą na jednym wykresie różnych warstw prezentujących różne aspekty tych samych danych. Zazwyczaj warstwy te przedstawiają dane z różną szczegółowością. Każda warstwa składa się z jednej geometrii określonej funkcją <code>geom_</code>, ale geometrie możemy do siebie po prostu dodawać.</p>
 <div id="fig-warstwy2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="grafiki/zakoduj_boxplot_06.png" class="img-fluid figure-img"></p>
@@ -524,7 +526,7 @@ Krzywinski, Martin, and Bang Wong. 2013. <span>“Points of View: Plotting Symbo
 <h2 data-number="6.10" class="anchored" data-anchor-id="zadania"><span class="header-section-number">6.10</span> Zadania</h2>
 <p>Najlepszy sposób rozwijania umiejętności programowania w pakiecie <code>ggplot2</code> to zadawanie pytań do danych i później uczenie się, jak zrobić wykres, który na dane pytanie odpowie. Poniżej znajdziesz sugestie kilku pytań na rozgrzewkę.</p>
 <ol type="1">
-<li>Narysuj histogram ilości wody w różnych produktach. Zaznacz grupę produktów za pomocą koloru. Unormuj słupki dla kolejnych przedziałów, by łatwiej było zauważyć, jaki jest udział określonej grupy w produktach o danej zawartości wody.<br>
+<li>Narysuj histogram ilości wody w różnych produktach. Zaznacz grupę produktów za pomocą koloru. Przeskaluj słupki dla kolejnych przedziałów, by łatwiej było zauważyć, jaki jest udział określonej grupy w produktach o danej zawartości wody.<br>
 </li>
 <li>Wybierz z danych słodycze i zaznacz je na wykresie kropkowym, pokazując zawartość cukrów oraz zawartość tłuszczów. Które produkty najbardziej odstają od centralnej chmury punktów? Zaznacz na wykresie nazwy kilku najbardziej odstających.</li>
 <li>Wykorzystaj wykres pudełkowy, aby porównać zawartość cukrów, oraz drugi, aby porównać zawartość tłuszczów pomiędzy różnymi grupami produktów.</li>
